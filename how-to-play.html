@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How To Play | YS PLAY</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --bg:#070912;
+
+    --card:rgba(18,22,35,0.82);
+
+    --border:rgba(255,255,255,0.09);
+
+    --text:#ffffff;
+
+    --muted:#8c94aa;
+
+    --purple:#7657ff;
+
+    --purple-light:#9279ff;
+
+    --blue:#4e8cff;
+
+    --green:#40e58b;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(62,105,255,0.20),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 8%,
+            rgba(157,66,255,0.20),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(42,88,255,0.08),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(7,9,18,0.95),
+            rgba(7,9,18,0.78)
+        );
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.15);
+}
+
+
+.header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-1px;
+
+    transform:translateX(-50%);
+
+    width:110px;
+
+    height:1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(118,87,255,0.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(118,87,255,0.7);
+}
+
+
+.brand{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+}
+
+
+.brand span{
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #8b7cff,
+            #67a4ff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+
+/* =====================================================
+   LOGO AREA
+===================================================== */
+
+.logo-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:24px 20px 18px;
+
+    position:relative;
+}
+
+
+.logo-area::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:150px;
+
+    height:110px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(118,87,255,0.28),
+            transparent 70%
+        );
+
+    filter:blur(18px);
+
+    pointer-events:none;
+}
+
+
+.logo-placeholder{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    text-align:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #5968ff,
+            #9b4dff
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.17);
+
+    box-shadow:
+
+        0 12px 35px rgba(105,78,255,0.38),
+
+        0 0 30px rgba(105,78,255,0.14),
+
+        inset 0 1px 1px rgba(255,255,255,0.3);
+
+    animation:
+        logoFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-4px);
+    }
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav{
+
+    width:calc(100% - 24px);
+
+    max-width:900px;
+
+    margin:0 auto 20px;
+
+    padding:5px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:5px;
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    border-radius:17px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.14);
+}
+
+
+.nav a{
+
+    flex:1;
+
+    max-width:180px;
+
+    padding:11px 10px;
+
+    text-align:center;
+
+    color:#9ca4b8;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:0.2px;
+
+    border-radius:11px;
+
+    transition:
+        0.25s ease;
+}
+
+
+.nav a:hover{
+
+    color:#ffffff;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.nav a.active{
+
+    color:#ffffff;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(105,87,255,0.45),
+            rgba(75,120,255,0.22)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.20);
+
+    box-shadow:
+
+        inset 0 1px rgba(255,255,255,0.11),
+
+        0 4px 18px rgba(65,70,255,0.20);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+
+    width:calc(100% - 24px);
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:32px 18px 30px;
+
+    border-radius:25px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.085),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.22);
+
+    text-align:center;
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+
+    height:230px;
+
+    left:-90px;
+
+    top:-100px;
+
+    background:#5268ff;
+
+    filter:blur(100px);
+
+    opacity:0.14;
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+
+    height:230px;
+
+    right:-100px;
+
+    bottom:-130px;
+
+    background:#9d4cff;
+
+    filter:blur(100px);
+
+    opacity:0.12;
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.hero h1{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:-0.5px;
+}
+
+
+.hero-subtitle{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:8px;
+
+    line-height:18px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-heading{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-top:20px;
+
+    margin-bottom:12px;
+
+    padding-left:4px;
+}
+
+
+.section-heading .line{
+
+    width:3px;
+
+    height:18px;
+
+    border-radius:5px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #9279ff,
+            #4e8cff
+        );
+
+    box-shadow:
+        0 0 12px rgba(118,87,255,0.65);
+}
+
+
+.section-heading h2{
+
+    font-size:16px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   INTRO CARD
+===================================================== */
+
+.intro-card{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.15);
+}
+
+
+.intro-card p{
+
+    color:#858da2;
+
+    font-size:11px;
+
+    line-height:18px;
+}
+
+
+/* =====================================================
+   STEPS
+===================================================== */
+
+.steps{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+
+.step{
+
+    display:flex;
+
+    gap:14px;
+
+    padding:17px;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.020)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.step:hover{
+
+    transform:translateY(-2px);
+
+    border-color:
+        rgba(124,108,255,0.25);
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,0.18);
+}
+
+
+.step-number{
+
+    min-width:42px;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(105,87,255,0.48),
+            rgba(75,120,255,0.20)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.25);
+
+    color:#ffffff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 0 18px rgba(105,87,255,0.12);
+}
+
+
+.step-content{
+
+    flex:1;
+}
+
+
+.step-content h3{
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin-top:2px;
+
+    margin-bottom:6px;
+}
+
+
+.step-content p{
+
+    color:#858da2;
+
+    font-size:10.5px;
+
+    line-height:17px;
+}
+
+
+/* =====================================================
+   CONTACT CARD
+===================================================== */
+
+.contact-card{
+
+    margin-top:12px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(105,87,255,0.10),
+            rgba(75,120,255,0.035)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.18);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.14);
+}
+
+
+.contact-card h3{
+
+    font-size:15px;
+
+    margin-bottom:7px;
+}
+
+
+.contact-card p{
+
+    color:#858da2;
+
+    font-size:10.5px;
+
+    line-height:17px;
+
+    margin-bottom:15px;
+}
+
+
+.contact-buttons{
+
+    display:flex;
+
+    gap:10px;
+}
+
+
+.contact-btn{
+
+    flex:1;
+
+    min-height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#ffffff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:0.3px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(105,87,255,0.45),
+            rgba(75,120,255,0.20)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.25);
+
+    transition:
+        0.25s ease;
+}
+
+
+.contact-btn:hover{
+
+    transform:translateY(-2px);
+
+    border-color:
+        rgba(145,125,255,0.50);
+
+    box-shadow:
+        0 8px 22px rgba(82,75,255,0.15);
+}
+
+
+/* =====================================================
+   POINTS / GAME GUIDE
+===================================================== */
+
+.guide-card{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.15);
+}
+
+
+.guide-row{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    padding:11px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.045);
+}
+
+
+.guide-row:first-child{
+
+    padding-top:0;
+}
+
+
+.guide-row:last-child{
+
+    padding-bottom:0;
+
+    border-bottom:none;
+}
+
+
+.guide-icon{
+
+    min-width:30px;
+
+    width:30px;
+
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:
+        rgba(118,87,255,0.10);
+
+    border:
+        1px solid rgba(124,108,255,0.15);
+
+    color:#9c89ff;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+.guide-text{
+
+    flex:1;
+}
+
+
+.guide-text strong{
+
+    display:block;
+
+    font-size:11px;
+
+    margin-bottom:4px;
+}
+
+
+.guide-text span{
+
+    color:#858da2;
+
+    font-size:9.5px;
+
+    line-height:15px;
+}
+
+
+/* =====================================================
+   IMPORTANT RULES
+===================================================== */
+
+.rules{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+
+.rule{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    color:#858da2;
+
+    font-size:10px;
+
+    line-height:16px;
+}
+
+
+.rule:last-child{
+
+    margin-bottom:0;
+}
+
+
+.tick{
+
+    min-width:18px;
+
+    color:#8d78ff;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+
+.faq-item{
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+}
+
+
+.faq-item h4{
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+}
+
+
+.faq-item p{
+
+    color:#7e879c;
+
+    font-size:9.5px;
+
+    line-height:15px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    max-width:900px;
+
+    margin:30px auto 0;
+
+    padding:25px 20px 30px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+
+    text-align:center;
+}
+
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:22px;
+
+    margin-bottom:14px;
+}
+
+
+.footer-links a{
+
+    color:#727b91;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    transition:
+        0.2s ease;
+}
+
+
+.footer-links a:hover{
+
+    color:#ffffff;
+}
+
+
+.copyright{
+
+    color:#4f576a;
+
+    font-size:10px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .header{
+
+        height:62px;
+    }
+
+
+    .brand{
+
+        font-size:20px;
+    }
+
+
+    .logo-area{
+
+        padding:21px 20px 16px;
+    }
+
+
+    .logo-placeholder{
+
+        width:74px;
+
+        height:74px;
+
+        border-radius:22px;
+
+        font-size:13px;
+    }
+
+
+    .nav{
+
+        width:calc(100% - 16px);
+
+        margin-bottom:16px;
+
+        padding:5px;
+    }
+
+
+    .nav a{
+
+        padding:11px 4px;
+
+        font-size:10px;
+
+        letter-spacing:0;
+    }
+
+
+    .container{
+
+        width:calc(100% - 16px);
+    }
+
+
+    .hero{
+
+        padding:27px 12px 28px;
+
+        border-radius:21px;
+    }
+
+
+    .hero h1{
+
+        font-size:25px;
+    }
+
+
+    .hero-subtitle{
+
+        font-size:11px;
+
+        line-height:17px;
+    }
+
+
+    .section-heading{
+
+        margin-top:17px;
+
+        margin-bottom:10px;
+    }
+
+
+    .section-heading h2{
+
+        font-size:14px;
+    }
+
+
+    .intro-card{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .intro-card p{
+
+        font-size:10px;
+
+        line-height:16px;
+    }
+
+
+    .step{
+
+        gap:11px;
+
+        padding:14px;
+
+        border-radius:16px;
+    }
+
+
+    .step-number{
+
+        min-width:36px;
+
+        width:36px;
+
+        height:36px;
+
+        border-radius:11px;
+
+        font-size:10px;
+    }
+
+
+    .step-content h3{
+
+        font-size:12px;
+
+        margin-bottom:5px;
+    }
+
+
+    .step-content p{
+
+        font-size:9px;
+
+        line-height:15px;
+    }
+
+
+    .contact-card{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .contact-card h3{
+
+        font-size:13px;
+    }
+
+
+    .contact-card p{
+
+        font-size:9px;
+
+        line-height:15px;
+    }
+
+
+    .contact-btn{
+
+        min-height:38px;
+
+        font-size:9px;
+    }
+
+
+    .guide-card{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .guide-text strong{
+
+        font-size:10px;
+    }
+
+
+    .guide-text span{
+
+        font-size:9px;
+
+        line-height:14px;
+    }
+
+
+    .rules{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .rule{
+
+        font-size:9px;
+
+        line-height:14px;
+
+        margin-bottom:10px;
+    }
+
+
+    .faq-item{
+
+        padding:14px;
+
+        border-radius:14px;
+    }
+
+
+    .faq-item h4{
+
+        font-size:10px;
+    }
+
+
+    .faq-item p{
+
+        font-size:9px;
+
+        line-height:14px;
+    }
+
+
+    .footer-links{
+
+        gap:15px;
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA SMALL PHONES
+===================================================== */
+
+@media(max-width:360px){
+
+    .nav a{
+
+        font-size:9px;
+
+        padding-left:2px;
+
+        padding-right:2px;
+    }
+
+
+    .hero h1{
+
+        font-size:23px;
+    }
+
+
+    .step{
+
+        padding:12px;
+    }
+
+
+    .step-number{
+
+        min-width:34px;
+
+        width:34px;
+
+        height:34px;
+    }
+
+
+    .contact-buttons{
+
+        gap:7px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <span>YS PLAY</span>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     LOGO
+===================================================== -->
+
+<div class="logo-area">
+
+    <div class="logo-placeholder">
+
+        YS<br>LOGO
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="nav">
+
+    <a href="index.html">
+        HOME
+    </a>
+
+    <a href="old-charts.html">
+        OLD CHARTS
+    </a>
+
+    <a href="how-to-play.html" class="active">
+        HOW TO PLAY
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                How To Play
+            </h1>
+
+            <div class="hero-subtitle">
+
+                A simple guide to understand YS PLAY,
+                numbers, charts and virtual game points.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         INTRO
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2>
+            Getting Started
+        </h2>
+
+    </div>
+
+
+    <section class="intro-card">
+
+        <p>
+
+            New to YS PLAY? No problem. Follow the steps
+            below to understand the basic process, check
+            the latest chart and keep track of your virtual
+            game activity.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         HOW IT WORKS
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2>
+            How It Works
+        </h2>
+
+    </div>
+
+
+    <section class="steps">
+
+
+        <!-- STEP 01 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Contact Us
+                </h3>
+
+                <p>
+
+                    Message us through WhatsApp or Telegram
+                    to get started and receive the required
+                    information.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 02 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Get Your Player ID
+                </h3>
+
+                <p>
+
+                    After contacting us, you may receive a
+                    unique Player ID. Keep your ID safe for
+                    future reference.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 03 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Receive Virtual Points
+                </h3>
+
+                <p>
+
+                    Virtual game points can be used within
+                    the website's game experience according
+                    to the applicable game rules.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 04 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Choose Your Number
+                </h3>
+
+                <p>
+
+                    Select an available two-digit number and
+                    use your virtual points according to the
+                    rules of the game.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 05 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Check Today's Chart
+                </h3>
+
+                <p>
+
+                    Once the round is updated, visit the Home
+                    page and check the Today's Chart section
+                    for the latest displayed result.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 06 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Track Your Game Points
+                </h3>
+
+                <p>
+
+                    Keep track of your virtual points and
+                    activity according to the game's rules
+                    and information displayed on the website.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 07 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                07
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Wait For The Next Round
+                </h3>
+
+                <p>
+
+                    The website timer shows the next update
+                    cycle. When the timer reaches zero, the
+                    next round can begin automatically.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================= -->
+
+    <section class="contact-card">
+
+        <h3>
+            Need Help?
+        </h3>
+
+        <p>
+
+            If you have questions about your Player ID,
+            game points or how the website works, contact
+            us through the available channels.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+            <a
+                href="#"
+                class="contact-btn"
+            >
+                WHATSAPP
+            </a>
+
+
+            <a
+                href="#"
+                class="contact-btn"
+            >
+                TELEGRAM
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         GAME GUIDE
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2>
+            Game Guide
+        </h2>
+
+    </div>
+
+
+    <section class="guide-card">
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                01
+            </div>
+
+            <div class="guide-text">
+
+                <strong>
+                    Select Carefully
+                </strong>
+
+                <span>
+
+                    Check the two-digit number carefully
+                    before continuing.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                02
+            </div>
+
+            <div class="guide-text">
+
+                <strong>
+                    Check The Timer
+                </strong>
+
+                <span>
+
+                    Keep an eye on the countdown shown on
+                    the Home page for the next update.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                03
+            </div>
+
+            <div class="guide-text">
+
+                <strong>
+                    Check Today's Chart
+                </strong>
+
+                <span>
+
+                    Latest displayed numbers can be viewed
+                    in the Today's Chart section.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                04
+            </div>
+
+            <div class="guide-text">
+
+                <strong>
+                    View Previous Charts
+                </strong>
+
+                <span>
+
+                    Open Old Charts to review previously
+                    displayed chart information.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         IMPORTANT RULES
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2>
+            Important Rules
+        </h2>
+
+    </div>
+
+
+    <section class="rules">
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span>
+
+                Keep your Player ID safe and do not share
+                it unnecessarily.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span>
+
+                Check your selected number carefully before
+                continuing.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span>
+
+                Always check the latest information directly
+                on the website.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span>
+
+                Virtual points are intended only for the
+                website's game experience.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span>
+
+                Points displayed on this website do not
+                represent real money or cash value.
+
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         FAQ
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+    </div>
+
+
+    <section class="faq">
+
+
+        <div class="faq-item">
+
+            <h4>
+                What is a Player ID?
+            </h4>
+
+            <p>
+
+                A Player ID is a unique reference number
+                used to identify your game profile.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4>
+                Where can I see the latest result?
+            </h4>
+
+            <p>
+
+                Open the Home page and check the Today's
+                Chart section.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4>
+                How do I check previous results?
+            </h4>
+
+            <p>
+
+                Open the Old Charts tab to view previously
+                displayed chart information.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4>
+                What happens when the timer ends?
+            </h4>
+
+            <p>
+
+                The timer resets automatically and the next
+                update cycle begins.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4>
+                Are the points real money?
+            </h4>
+
+            <p>
+
+                No. The points displayed on this website are
+                virtual game points and have no cash value.
+
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-links">
+
+
+        <a href="index.html">
+            HOME
+        </a>
+
+
+        <a href="old-charts.html">
+            OLD CHARTS
+        </a>
+
+
+        <a href="how-to-play.html">
+            HOW TO PLAY
+        </a>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 YS PLAY. All rights reserved.
+
+    </div>
+
+
+</footer>
+
+
+</body>
+
+</html>
