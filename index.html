@@ -2536,14 +2536,38 @@ const gamesRef = collection(
 onSnapshot(gamesRef, (snapshot) => {
 
     console.log("YS PLAY Firebase connected!");
-
     console.log("Today's games:", snapshot.size);
+
+    let latestGame = null;
 
     snapshot.forEach((doc) => {
 
-        console.log(doc.id, doc.data());
+        const data = doc.data();
+
+        console.log(doc.id, data);
+
+        if (
+            data.result1 !== "--" &&
+            data.result2 !== "--" &&
+            data.result3 !== "--"
+        ) {
+            latestGame = data;
+        }
 
     });
+
+    if (latestGame) {
+
+        document.getElementById("latest1").textContent =
+            latestGame.result1;
+
+        document.getElementById("latest2").textContent =
+            latestGame.result2;
+
+        document.getElementById("latest3").textContent =
+            latestGame.result3;
+
+    }
 
 }, (error) => {
 
