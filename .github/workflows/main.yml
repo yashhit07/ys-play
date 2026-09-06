@@ -74,46 +74,50 @@ jobs:
 
           const now = getIST();
 
-          let isGameTime = false;
+function getLatestGameSlot(hour, minute) {
 
-          if (
-            now.hour >= 10 &&
-            now.hour < 13 &&
-            now.minute % 15 === 0
-          ) {
-            isGameTime = true;
-          }
+  if (hour >= 10 && hour < 13) {
+    return {
+      hour,
+      minute: Math.floor(minute / 15) * 15
+    };
+  }
 
-          if (
-            now.hour >= 14 &&
-            now.hour < 17 &&
-            now.minute % 15 === 0
-          ) {
-            isGameTime = true;
-          }
+  if (hour >= 14 && hour < 17) {
+    return {
+      hour,
+      minute: Math.floor(minute / 15) * 15
+    };
+  }
 
-          if (
-            now.hour >= 18 &&
-            now.hour < 21 &&
-            now.minute % 15 === 0
-          ) {
-            isGameTime = true;
-          }
+  if (hour >= 18 && hour < 21) {
+    return {
+      hour,
+      minute: Math.floor(minute / 15) * 15
+    };
+  }
 
-          if (
-            now.hour === 22 &&
-            now.minute % 10 === 0
-          ) {
-            isGameTime = true;
-          }
+  if (hour === 22) {
+    return {
+      hour,
+      minute: Math.floor(minute / 10) * 10
+    };
+  }
 
-          if (!isGameTime) {
-            console.log(
-              `No game now. IST: ${pad(now.hour)}:${pad(now.minute)}`
-            );
-            process.exit(0);
-          }
+  return null;
+}
 
+const slot = getLatestGameSlot(now.hour, now.minute);
+
+if (!slot) {
+  console.log(
+    `No game session now. IST: ${pad(now.hour)}:${pad(now.minute)}`
+  );
+  process.exit(0);
+}
+
+const gameHour = slot.hour;
+const gameMinute = slot.minute;
           const dateId =
             `${now.year}-${pad(now.month)}-${pad(now.day)}`;
 
