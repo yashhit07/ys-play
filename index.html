@@ -2296,111 +2296,152 @@ body {
    15 MINUTE TIMER
 ===================================================== */
 
-const totalTime = 15 * 60;
-
-let timeLeft = totalTime;
-
-
 function updateTimer() {
 
+    const now = new Date();
 
-    /* Minutes */
+    const ist = new Date(
+        now.toLocaleString("en-US", {
+            timeZone: "Asia/Kolkata"
+        })
+    );
 
-    let minutes =
-        Math.floor(timeLeft / 60);
+    const hours = ist.getHours();
+    const minutes = ist.getMinutes();
+    const seconds = ist.getSeconds();
 
+    let target;
+    let isBreak = false;
 
-    /* Seconds */
+    // 10:00 AM - 1:00 PM
+    if (hours >= 10 && hours < 13) {
 
-    let seconds =
-        timeLeft % 60;
+        target = new Date(ist);
 
+        const nextSlot =
+            Math.ceil((minutes + 1) / 15) * 15;
 
-    /* Display */
+        if (nextSlot < 60) {
+            target.setMinutes(nextSlot, 0, 0);
+        } else {
+            target.setHours(hours + 1, 0, 0, 0);
+        }
 
-    let displayMinutes =
-        String(minutes).padStart(2, "0");
+    // 1:00 PM - 2:00 PM BREAK
+    } else if (hours >= 13 && hours < 14) {
 
+        isBreak = true;
 
-    let displaySeconds =
-        String(seconds).padStart(2, "0");
+        target = new Date(ist);
+        target.setHours(14, 0, 0, 0);
 
+    // 2:00 PM - 5:00 PM
+    } else if (hours >= 14 && hours < 17) {
 
-    document.getElementById("timer").textContent =
-        displayMinutes + ":" + displaySeconds;
+        target = new Date(ist);
 
+        const nextSlot =
+            Math.ceil((minutes + 1) / 15) * 15;
 
+        if (nextSlot < 60) {
+            target.setMinutes(nextSlot, 0, 0);
+        } else {
+            target.setHours(hours + 1, 0, 0, 0);
+        }
 
-    /* =================================================
-       RING PROGRESS
-    ================================================= */
+    // 5:00 PM - 6:00 PM BREAK
+    } else if (hours >= 17 && hours < 18) {
 
-    let progress =
-        (timeLeft / totalTime) * 100;
+        isBreak = true;
 
+        target = new Date(ist);
+        target.setHours(18, 0, 0, 0);
 
-    document
-        .getElementById("timerRing")
-        .style
-        .setProperty(
-            "--progress",
-            progress + "%"
-        );
+    // 6:00 PM - 9:00 PM
+    } else if (hours >= 18 && hours < 21) {
 
+        target = new Date(ist);
 
+        const nextSlot =
+            Math.ceil((minutes + 1) / 15) * 15;
 
-    /* =================================================
-       LAST 60 SECOND EFFECT
-    ================================================= */
+        if (nextSlot < 60) {
+            target.setMinutes(nextSlot, 0, 0);
+        } else {
+            target.setHours(hours + 1, 0, 0, 0);
+        }
+
+    // 9:00 PM - 10:00 PM BREAK
+    } else if (hours >= 21 && hours < 22) {
+
+        isBreak = true;
+
+        target = new Date(ist);
+        target.setHours(22, 0, 0, 0);
+
+    // 10:00 PM - 11:00 PM BONUS
+    } else if (hours >= 22 && hours < 23) {
+
+        target = new Date(ist);
+
+        const nextSlot =
+            Math.ceil((minutes + 1) / 10) * 10;
+
+        if (nextSlot < 60) {
+            target.setMinutes(nextSlot, 0, 0);
+        } else {
+            target.setHours(hours + 1, 0, 0, 0);
+        }
+
+    // BEFORE 10 AM / AFTER 11 PM
+    } else {
+
+        isBreak = true;
+
+        target = new Date(ist);
+        target.setHours(10, 0, 0, 0);
+
+        if (hours >= 23) {
+            target.setDate(target.getDate() + 1);
+        }
+    }
+
+    const diff =
+        Math.max(0, Math.floor((target - ist) / 1000));
+
+    const mins = Math.floor(diff / 60);
+    const secs = diff % 60;
+
+    const timer =
+        document.getElementById("timer");
+
+    if (timer) {
+
+        timer.textContent =
+            String(mins).padStart(2, "0") +
+            ":" +
+            String(secs).padStart(2, "0");
+
+    }
 
     const timerArea =
         document.getElementById("timerArea");
 
+    if (timerArea) {
 
-    if (timeLeft <= 60) {
-
-        timerArea.classList.add("warning");
-
-    } else {
-
-        timerArea.classList.remove("warning");
-
-    }
-
-
-
-    /* =================================================
-       COUNTDOWN
-    ================================================= */
-
-    timeLeft--;
-
-
-
-    /* =================================================
-       AUTO RESTART
-    ================================================= */
-
-    if (timeLeft < 0) {
-
-        timeLeft = totalTime;
+        if (diff <= 60) {
+            timerArea.classList.add("warning");
+        } else {
+            timerArea.classList.remove("warning");
+        }
 
     }
 
 }
 
-
-/* Start timer */
-
 updateTimer();
 
-
-/* Update every second */
-
-setInterval(
-    updateTimer,
-    1000
-);
+setInterval(updateTimer, 1000);
 
 
 
