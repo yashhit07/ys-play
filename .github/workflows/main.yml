@@ -1,0 +1,174 @@
+name: YS PLAY Automatic Results
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  generate-result:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Firebase Admin
+        run: npm install firebase-admin
+
+      - name: Generate result
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          node <<'EOF'
+          const { initializeApp, cert } = require("firebase-admin/app");
+          const { getFirestore } = require("firebase-admin/firestore");
+
+          const serviceAccount = JSON.parse(
+            process.env.FIREBASE_SERVICE_ACCOUNT
+          );
+
+          initializeApp({
+            credential: cert(serviceAccount)
+          });
+
+          const db = getFirestore();
+
+          function getIST() {
+            const parts = new Intl.DateTimeFormat("en-GB", {
+              timeZone: "Asia/Kolkata",
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              hourCycle: "h23"
+            }).formatToParts(new Date());
+
+            const get = (name) =>
+              parts.find(p => p.type === name).value;
+
+            return {
+              year: Number(get("year")),
+              month: Number(get("month")),
+              day: Number(get("day")),
+              hour: Number(get("hour")),
+              minute: Number(get("minute"))
+            };
+          }
+
+          function pad(n) {
+            return String(n).padStart(2, "0");
+          }
+
+          function formatTime(hour, minute) {
+            const suffix = hour >= 12 ? "PM" : "AM";
+            let h = hour % 12;
+            if (h === 0) h = 12;
+
+            return `${h}:${pad(minute)} ${suffix}`;
+          }
+
+          const now = getIST();
+
+          let isGameTime = false;
+
+          if (
+            now.hour >= 10 &&
+            now.hour < 13 &&
+            now.minute % 15 === 0
+          ) {
+            isGameTime = true;
+          }
+
+          if (
+            now.hour >= 14 &&
+            now.hour < 17 &&
+            now.minute % 15 === 0
+          ) {
+            isGameTime = true;
+          }
+
+          if (
+            now.hour >= 18 &&
+            now.hour < 21 &&
+            now.minute % 15 === 0
+          ) {
+            isGameTime = true;
+          }
+
+          if (
+            now.hour === 22 &&
+            now.minute % 10 === 0
+          ) {
+            isGameTime = true;
+          }
+
+          if (!isGameTime) {
+            console.log(
+              `No game now. IST: ${pad(now.hour)}:${pad(now.minute)}`
+            );
+            process.exit(0);
+          }
+
+          const dateId =
+            `${now.year}-${pad(now.month)}-${pad(now.day)}`;
+
+          const gameId =
+            `${pad(now.hour)}-${pad(now.minute)}`;
+
+          const gameTime =
+            formatTime(now.hour, now.minute);
+
+          const gameRef = db
+            .collection("daily_results")
+            .doc(dateId)
+            .collection("games")
+            .doc(gameId);
+
+          const result1 =
+            String(Math.floor(Math.random() * 100)).padStart(2, "0");
+
+          const result2 =
+            String(Math.floor(Math.random() * 100)).padStart(2, "0");
+
+          const result3 =
+            String(Math.floor(Math.random() * 100)).padStart(2, "0");
+
+          await db.runTransaction(async (transaction) => {
+
+            const snap = await transaction.get(gameRef);
+
+            if (snap.exists) {
+              const old = snap.data();
+
+              if (
+                old.result1 &&
+                old.result1 !== "--" &&
+                old.result2 &&
+                old.result2 !== "--" &&
+                old.result3 &&
+                old.result3 !== "--"
+              ) {
+                console.log(
+                  `Result already exists for ${dateId} ${gameId}`
+                );
+                return;
+              }
+            }
+
+            transaction.set(gameRef, {
+              time: gameTime,
+              result1,
+              result2,
+              result3
+            }, { merge: true });
+
+          });
+
+          console.log(
+            `Generated ${gameTime}: ${result1} / ${result2} / ${result3}`
+          );
+          EOF
