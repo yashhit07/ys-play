@@ -2480,6 +2480,79 @@ setInterval(
 
 </script>
 
+   <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyDv6F9RNNa6XYYPXVumqKr77GSKW2d7Y6U",
+
+    authDomain: "ys-play-fc93c.firebaseapp.com",
+
+    projectId: "ys-play-fc93c",
+
+    storageBucket: "ys-play-fc93c.firebasestorage.app",
+
+    messagingSenderId: "931694240335",
+
+    appId: "1:931694240335:web:433aa4fe02020066dfc03a"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+const today = new Intl.DateTimeFormat("en-CA", {
+
+    timeZone: "Asia/Kolkata"
+
+}).format(new Date());
+
+
+const gamesRef = collection(
+
+    db,
+
+    "daily_results",
+
+    today,
+
+    "games"
+
+);
+
+
+onSnapshot(gamesRef, (snapshot) => {
+
+    console.log("YS PLAY Firebase connected!");
+
+    console.log("Today's games:", snapshot.size);
+
+    snapshot.forEach((doc) => {
+
+        console.log(doc.id, doc.data());
+
+    });
+
+}, (error) => {
+
+    console.error("Firebase error:", error);
+
+});
+
+</script>
+
 
 </body>
 
