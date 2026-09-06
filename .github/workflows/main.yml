@@ -122,10 +122,10 @@ const gameMinute = slot.minute;
             `${now.year}-${pad(now.month)}-${pad(now.day)}`;
 
           const gameId =
-            `${pad(now.hour)}-${pad(now.minute)}`;
+  `${pad(gameHour)}-${pad(gameMinute)}`;
 
-          const gameTime =
-            formatTime(now.hour, now.minute);
+const gameTime =
+  formatTime(gameHour, gameMinute);
 
           const gameRef = db
             .collection("daily_results")
