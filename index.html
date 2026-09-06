@@ -2546,6 +2546,28 @@ onSnapshot(gamesRef, (snapshot) => {
 
         console.log(doc.id, data);
 
+        const rows = document.querySelectorAll("#todayChart tr");
+
+rows.forEach(row => {
+
+    const cells = row.querySelectorAll("td");
+
+    if (cells.length < 4) return;
+
+    const time = cells[0].textContent
+        .replace("NEW", "")
+        .trim();
+
+    if (data.time === time) {
+
+        cells[1].textContent = data.result1 || "—";
+        cells[2].textContent = data.result2 || "—";
+        cells[3].textContent = data.result3 || "—";
+
+    }
+
+});
+
         if (
             data.result1 !== "--" &&
             data.result2 !== "--" &&
