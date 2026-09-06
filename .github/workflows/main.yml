@@ -23,6 +23,7 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: |
           node <<'EOF'
+          (async () => {
           const { initializeApp, cert } = require("firebase-admin/app");
           const { getFirestore } = require("firebase-admin/firestore");
 
@@ -171,4 +172,5 @@ jobs:
           console.log(
             `Generated ${gameTime}: ${result1} / ${result2} / ${result3}`
           );
+          })();
           EOF
