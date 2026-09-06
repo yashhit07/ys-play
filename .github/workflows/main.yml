@@ -24,6 +24,7 @@ jobs:
         run: |
           node <<'EOF'
           (async () => {
+
           const { initializeApp, cert } = require("firebase-admin/app");
           const { getFirestore } = require("firebase-admin/firestore");
 
@@ -66,115 +67,203 @@ jobs:
 
           function formatTime(hour, minute) {
             const suffix = hour >= 12 ? "PM" : "AM";
+
             let h = hour % 12;
-            if (h === 0) h = 12;
+
+            if (h === 0) {
+              h = 12;
+            }
 
             return `${h}:${pad(minute)} ${suffix}`;
           }
 
+          function getScheduledSlots(hour, minute) {
+
+            const slots = [];
+
+            // 10:00 AM - 12:45 PM
+            if (hour >= 10 && hour < 13) {
+
+              for (let h = 10; h <= hour; h++) {
+
+                for (let m = 0; m < 60; m += 15) {
+
+                  if (h === hour && m > minute) {
+                    break;
+                  }
+
+                  slots.push({
+                    hour: h,
+                    minute: m
+                  });
+
+                }
+
+              }
+
+            }
+
+            // 2:00 PM - 4:45 PM
+            if (hour >= 14 && hour < 17) {
+
+              for (let h = 14; h <= hour; h++) {
+
+                for (let m = 0; m < 60; m += 15) {
+
+                  if (h === hour && m > minute) {
+                    break;
+                  }
+
+                  slots.push({
+                    hour: h,
+                    minute: m
+                  });
+
+                }
+
+              }
+
+            }
+
+            // 6:00 PM - 8:45 PM
+            if (hour >= 18 && hour < 21) {
+
+              for (let h = 18; h <= hour; h++) {
+
+                for (let m = 0; m < 60; m += 15) {
+
+                  if (h === hour && m > minute) {
+                    break;
+                  }
+
+                  slots.push({
+                    hour: h,
+                    minute: m
+                  });
+
+                }
+
+              }
+
+            }
+
+            // 10:00 PM - 10:50 PM BONUS
+            if (hour === 22) {
+
+              for (let m = 0; m < 60; m += 10) {
+
+                if (m > minute) {
+                  break;
+                }
+
+                slots.push({
+                  hour: 22,
+                  minute: m
+                });
+
+              }
+
+            }
+
+            return slots;
+          }
+
           const now = getIST();
 
-function getLatestGameSlot(hour, minute) {
-
-  if (hour >= 10 && hour < 13) {
-    return {
-      hour,
-      minute: Math.floor(minute / 15) * 15
-    };
-  }
-
-  if (hour >= 14 && hour < 17) {
-    return {
-      hour,
-      minute: Math.floor(minute / 15) * 15
-    };
-  }
-
-  if (hour >= 18 && hour < 21) {
-    return {
-      hour,
-      minute: Math.floor(minute / 15) * 15
-    };
-  }
-
-  if (hour === 22) {
-    return {
-      hour,
-      minute: Math.floor(minute / 10) * 10
-    };
-  }
-
-  return null;
-}
-
-const slot = getLatestGameSlot(now.hour, now.minute);
-
-if (!slot) {
-  console.log(
-    `No game session now. IST: ${pad(now.hour)}:${pad(now.minute)}`
-  );
-  process.exit(0);
-}
-
-const gameHour = slot.hour;
-const gameMinute = slot.minute;
           const dateId =
             `${now.year}-${pad(now.month)}-${pad(now.day)}`;
 
-          const gameId =
-  `${pad(gameHour)}-${pad(gameMinute)}`;
+          const slots =
+            getScheduledSlots(now.hour, now.minute);
 
-const gameTime =
-  formatTime(gameHour, gameMinute);
+          if (slots.length === 0) {
 
-          const gameRef = db
-            .collection("daily_results")
-            .doc(dateId)
-            .collection("games")
-            .doc(gameId);
+            console.log(
+              `No game session now. IST: ${pad(now.hour)}:${pad(now.minute)}`
+            );
 
-          const result1 =
-            String(Math.floor(Math.random() * 100)).padStart(2, "0");
-
-          const result2 =
-            String(Math.floor(Math.random() * 100)).padStart(2, "0");
-
-          const result3 =
-            String(Math.floor(Math.random() * 100)).padStart(2, "0");
-
-          await db.runTransaction(async (transaction) => {
-
-            const snap = await transaction.get(gameRef);
-
-            if (snap.exists) {
-              const old = snap.data();
-
-              if (
-                old.result1 &&
-                old.result1 !== "--" &&
-                old.result2 &&
-                old.result2 !== "--" &&
-                old.result3 &&
-                old.result3 !== "--"
-              ) {
-                console.log(
-                  `Result already exists for ${dateId} ${gameId}`
-                );
-                return;
-              }
-            }
-
-            transaction.set(gameRef, {
-              time: gameTime,
-              result1,
-              result2,
-              result3
-            }, { merge: true });
-
-          });
+            process.exit(0);
+          }
 
           console.log(
-            `Generated ${gameTime}: ${result1} / ${result2} / ${result3}`
+            `Checking ${slots.length} scheduled game(s) for ${dateId}`
           );
+
+          for (const slot of slots) {
+
+            const gameId =
+              `${pad(slot.hour)}-${pad(slot.minute)}`;
+
+            const gameTime =
+              formatTime(slot.hour, slot.minute);
+
+            const gameRef = db
+              .collection("daily_results")
+              .doc(dateId)
+              .collection("games")
+              .doc(gameId);
+
+            const result1 =
+              String(
+                Math.floor(Math.random() * 100)
+              ).padStart(2, "0");
+
+            const result2 =
+              String(
+                Math.floor(Math.random() * 100)
+              ).padStart(2, "0");
+
+            const result3 =
+              String(
+                Math.floor(Math.random() * 100)
+              ).padStart(2, "0");
+
+            await db.runTransaction(async (transaction) => {
+
+              const snap =
+                await transaction.get(gameRef);
+
+              if (snap.exists) {
+
+                const old = snap.data();
+
+                if (
+                  old.result1 &&
+                  old.result1 !== "--" &&
+                  old.result2 &&
+                  old.result2 !== "--" &&
+                  old.result3 &&
+                  old.result3 !== "--"
+                ) {
+
+                  console.log(
+                    `Already exists: ${dateId} ${gameId}`
+                  );
+
+                  return;
+                }
+              }
+
+              transaction.set(
+                gameRef,
+                {
+                  time: gameTime,
+                  result1,
+                  result2,
+                  result3
+                },
+                { merge: true }
+              );
+
+              console.log(
+                `Generated ${gameTime}: ${result1} / ${result2} / ${result3}`
+              );
+
+            });
+
+          }
+
+          console.log("YS PLAY result check completed.");
+
           })();
           EOF
