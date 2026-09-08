@@ -1413,6 +1413,84 @@ body {
 
 }
 
+
+/* =====================================================
+   COMPACT GAME SCHEDULE
+===================================================== */
+
+.game-schedule {
+    margin: 18px auto 0;
+    padding: 12px 14px;
+    max-width: 760px;
+    border: 1px solid rgba(145,145,255,0.12);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.025);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.16);
+}
+
+.game-schedule-title {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aebaff;
+    margin-bottom: 9px;
+}
+
+.game-schedule-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    color: #cbd0df;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.game-schedule-item {
+    padding: 5px 8px;
+    border-radius: 8px;
+    background: rgba(118,87,255,0.07);
+    border: 1px solid rgba(118,87,255,0.08);
+    white-space: nowrap;
+}
+
+.game-schedule-item.break {
+    color: #858da2;
+    background: rgba(255,255,255,0.025);
+    border-color: rgba(255,255,255,0.05);
+}
+
+.game-schedule-item.bonus {
+    color: #d7d9ff;
+    background: rgba(118,87,255,0.13);
+}
+
+.game-schedule-total {
+    margin-top: 8px;
+    text-align: center;
+    color: #697187;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+@media(max-width:600px) {
+    .game-schedule {
+        margin-top: 15px;
+        padding: 10px 8px;
+    }
+
+    .game-schedule-row {
+        gap: 4px;
+        font-size: 9px;
+    }
+
+    .game-schedule-item {
+        padding: 4px 6px;
+    }
+}
+
 </style>
 
 </head>
@@ -1588,6 +1666,31 @@ body {
 
     </section>
 
+    <!-- =================================================
+         COMPACT GAME SCHEDULE
+    ================================================= -->
+
+    <div class="game-schedule">
+
+        <div class="game-schedule-title">
+            Game Schedule
+        </div>
+
+        <div class="game-schedule-row">
+
+            <div class="game-schedule-item">10 AM–1 PM · 12 Games</div>
+            <div class="game-schedule-item break">1–2 PM · BREAK</div>
+            <div class="game-schedule-item">2–5 PM · 12 Games</div>
+            <div class="game-schedule-item break">5–6 PM · BREAK</div>
+            <div class="game-schedule-item">6–9 PM · 12 Games</div>
+            <div class="game-schedule-item break">9–10 PM · BREAK</div>
+            <div class="game-schedule-item bonus">10–11 PM · ⭐ 6 Bonus Games</div>
+
+        </div>
+
+        <div class="game-schedule-total">42 Games Daily</div>
+
+    </div>
 
 
     <!-- =================================================
