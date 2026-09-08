@@ -2574,12 +2574,140 @@ const gamesRef = collection(
 );
 
 
+let todayGames = [];
+
+function getISTNow() {
+    const now = new Date();
+
+    return new Date(
+        now.toLocaleString("en-US", {
+            timeZone: "Asia/Kolkata"
+        })
+    );
+}
+
+function timeToMinutes(timeString) {
+    const parts = timeString.trim().split(" ");
+    const time = parts[0];
+    const period = parts[1];
+
+    let [hours, minutes] = time.split(":").map(Number);
+
+    if (period === "PM" && hours !== 12) {
+        hours += 12;
+    }
+
+    if (period === "AM" && hours === 12) {
+        hours = 0;
+    }
+
+    return hours * 60 + minutes;
+}
+
+function renderReleasedResults() {
+
+    const ist = getISTNow();
+
+    const currentMinutes =
+        ist.getHours() * 60 + ist.getMinutes();
+
+    const rows =
+        document.querySelectorAll("#todayChart tr");
+
+    // Pehle saare results hide rakho
+    rows.forEach(row => {
+
+        const cells = row.querySelectorAll("td");
+
+        if (cells.length >= 4) {
+            cells[1].textContent = "—";
+            cells[2].textContent = "—";
+            cells[3].textContent = "—";
+        }
+
+    });
+
+    let releasedGames = [];
+
+    todayGames.forEach(game => {
+
+        if (!game.time) return;
+
+        const gameMinutes =
+            timeToMinutes(game.time);
+
+        // Sirf scheduled time ke baad result dikhega
+        if (currentMinutes >= gameMinutes) {
+
+            releasedGames.push(game);
+
+            rows.forEach(row => {
+
+                const cells =
+                    row.querySelectorAll("td");
+
+                if (cells.length < 4) return;
+
+                const rowTime =
+                    cells[0].textContent
+                        .replace("NEW", "")
+                        .trim();
+
+                if (rowTime === game.time) {
+
+                    cells[1].textContent =
+                        game.result1 || "—";
+
+                    cells[2].textContent =
+                        game.result2 || "—";
+
+                    cells[3].textContent =
+                        game.result3 || "—";
+
+                }
+
+            });
+
+        }
+
+    });
+
+    // Latest Numbers = latest released game
+    releasedGames.sort((a, b) =>
+        timeToMinutes(a.time) -
+        timeToMinutes(b.time)
+    );
+
+    const latestGame =
+        releasedGames[releasedGames.length - 1];
+
+    if (latestGame) {
+
+        document.getElementById("latest1").textContent =
+            latestGame.result1 || "—";
+
+        document.getElementById("latest2").textContent =
+            latestGame.result2 || "—";
+
+        document.getElementById("latest3").textContent =
+            latestGame.result3 || "—";
+
+    } else {
+
+        document.getElementById("latest1").textContent = "—";
+        document.getElementById("latest2").textContent = "—";
+        document.getElementById("latest3").textContent = "—";
+
+    }
+
+}
+
 onSnapshot(gamesRef, (snapshot) => {
 
     console.log("YS PLAY Firebase connected!");
     console.log("Today's games:", snapshot.size);
 
-    let latestGame = null;
+    todayGames = [];
 
     snapshot.forEach((doc) => {
 
@@ -2587,50 +2715,12 @@ onSnapshot(gamesRef, (snapshot) => {
 
         console.log(doc.id, data);
 
-        const rows = document.querySelectorAll("#todayChart tr");
-
-rows.forEach(row => {
-
-    const cells = row.querySelectorAll("td");
-
-    if (cells.length < 4) return;
-
-    const time = cells[0].textContent
-        .replace("NEW", "")
-        .trim();
-
-    if (data.time === time) {
-
-        cells[1].textContent = data.result1 || "—";
-        cells[2].textContent = data.result2 || "—";
-        cells[3].textContent = data.result3 || "—";
-
-    }
-
-});
-
-        if (
-            data.result1 !== "--" &&
-            data.result2 !== "--" &&
-            data.result3 !== "--"
-        ) {
-            latestGame = data;
-        }
+        todayGames.push(data);
 
     });
 
-    if (latestGame) {
-
-        document.getElementById("latest1").textContent =
-            latestGame.result1;
-
-        document.getElementById("latest2").textContent =
-            latestGame.result2;
-
-        document.getElementById("latest3").textContent =
-            latestGame.result3;
-
-    }
+    // Firebase se data aate hi check
+    renderReleasedResults();
 
 }, (error) => {
 
@@ -2638,6 +2728,10 @@ rows.forEach(row => {
 
 });
 
+// Har second check karega.
+// Isse scheduled time par result automatically reveal hoga.
+setInterval(renderReleasedResults, 1000);
+      
 </script>
 
 
