@@ -2628,6 +2628,7 @@ function renderReleasedResults() {
     });
 
     let releasedGames = [];
+    let latestRow = null;
 
     todayGames.forEach(game => {
 
@@ -2682,6 +2683,32 @@ function renderReleasedResults() {
         releasedGames[releasedGames.length - 1];
 
     if (latestGame) {
+       rows.forEach(row => {
+    row.classList.remove("latest");
+
+    const badge = row.querySelector(".latest-badge");
+    if (badge) {
+        badge.remove();
+    }
+});
+
+rows.forEach(row => {
+    const cells = row.querySelectorAll("td");
+
+    if (cells.length < 4) return;
+
+    const rowTime = cells[0].textContent.trim();
+
+    if (rowTime === latestGame.time) {
+        row.classList.add("latest");
+
+        const badge = document.createElement("span");
+        badge.className = "latest-badge";
+        badge.textContent = "NEW";
+
+        cells[0].appendChild(badge);
+    }
+});
 
         document.getElementById("latest1").textContent =
             latestGame.result1 || "—";
