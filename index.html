@@ -390,6 +390,114 @@ body {
 }
 
 
+
+
+/* =====================================================
+   MOVING NOTICE TICKER
+===================================================== */
+
+.notice-ticker {
+
+    width: calc(100% - 24px);
+
+    max-width: 900px;
+
+    margin: -4px auto 18px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(118,87,255,0.20);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(118,87,255,0.12),
+            rgba(78,140,255,0.06)
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,0.05),
+        0 8px 24px rgba(0,0,0,0.12);
+}
+
+.notice-track {
+
+    width: max-content;
+
+    display: flex;
+
+    align-items: center;
+
+    white-space: nowrap;
+
+    animation: noticeScroll 16s linear infinite;
+
+    will-change: transform;
+}
+
+.notice-item {
+
+    flex-shrink: 0;
+
+    padding: 11px 28px;
+
+    color: #d9dcff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+.notice-separator {
+
+    color: #9279ff;
+
+    padding: 0 12px;
+}
+
+@keyframes noticeScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.notice-ticker:hover .notice-track {
+
+    animation-play-state: paused;
+}
+
+@media(max-width:600px) {
+
+    .notice-ticker {
+
+        width: calc(100% - 16px);
+
+        margin: -2px auto 15px;
+    }
+
+    .notice-track {
+
+        animation-duration: 14s;
+    }
+
+    .notice-item {
+
+        padding: 10px 20px;
+
+        font-size: 10px;
+    }
+}
+
+
 /* =====================================================
    MAIN
 ===================================================== */
@@ -1548,6 +1656,34 @@ body {
     </a>
 
 </nav>
+
+<!-- =====================================================
+     MOVING NOTICE TICKER
+===================================================== -->
+
+<div class="notice-ticker" aria-label="Important notice">
+
+    <div class="notice-track">
+
+        <div class="notice-item">
+            Big Win Today
+            <span class="notice-separator">|</span>
+            WhatsApp only : 9665057678
+            <span class="notice-separator">|</span>
+            Keep Playing
+        </div>
+
+        <div class="notice-item" aria-hidden="true">
+            Big Win Today
+            <span class="notice-separator">|</span>
+            WhatsApp only : 9665057678
+            <span class="notice-separator">|</span>
+            Keep Playing
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- =====================================================
