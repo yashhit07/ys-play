@@ -11,6 +11,11 @@ body{font-family:Arial,Helvetica,sans-serif;color:var(--text);min-height:100vh;b
 .header{height:68px;display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:100;background:linear-gradient(180deg,rgba(7,9,18,.95),rgba(7,9,18,.78));border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 30px rgba(0,0,0,.15)}
 .header:after{content:"";position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:110px;height:1px;background:linear-gradient(90deg,transparent,rgba(118,87,255,.9),transparent);box-shadow:0 0 15px rgba(118,87,255,.7)}
 .brand{font-size:22px;font-weight:800;letter-spacing:1.2px}.brand span{background:linear-gradient(90deg,#fff,#8b7cff,#67a4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* LANGUAGE BUTTON CSS */
+.language-toggle{position:absolute;right:20px;background:linear-gradient(135deg,rgba(118,87,255,.15),rgba(78,140,255,.1));border:1px solid rgba(124,108,255,.25);color:#d9dcff;padding:7px 12px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .3s ease;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.language-toggle:hover{background:rgba(118,87,255,.25);color:#fff;border-color:rgba(124,108,255,.4);box-shadow:0 4px 15px rgba(118,87,255,.2);transform:translateY(-1px)}
+
 .logo-area{display:flex;justify-content:center;padding:24px 20px 18px;position:relative}.logo-area:before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:150px;height:110px;background:radial-gradient(circle,rgba(118,87,255,.28),transparent 70%);filter:blur(18px)}
 .logo-placeholder{width:78px;height:78px;border-radius:24px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;text-align:center;font-size:14px;font-weight:800;line-height:1.1;background:linear-gradient(135deg,#5968ff,#9b4dff);border:1px solid rgba(255,255,255,.17);box-shadow:0 12px 35px rgba(105,78,255,.38),0 0 30px rgba(105,78,255,.14),inset 0 1px 1px rgba(255,255,255,.3);animation:logoFloat 4s ease-in-out infinite}
 @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
@@ -25,7 +30,7 @@ body{font-family:Arial,Helvetica,sans-serif;color:var(--text);min-height:100vh;b
 .chart-head,.chart-row{display:grid;grid-template-columns:86px 1fr;align-items:center}.chart-head{padding:0 10px 7px;color:#687187;font-size:8px;text-transform:uppercase;letter-spacing:1px}.chart-head .numbers-head{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;text-align:center}.chart-row{min-height:39px;margin-bottom:6px;padding:5px 7px;border-radius:10px;background:linear-gradient(145deg,rgba(118,87,255,.08),rgba(78,140,255,.025));border:1px solid rgba(255,255,255,.05)}.chart-time{font-size:9px;font-weight:800;color:#c9cce0;padding-left:3px}.chart-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.chart-number{height:28px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(145deg,rgba(118,87,255,.15),rgba(78,140,255,.06));border:1px solid rgba(124,108,255,.12);font-size:11px;font-weight:800;color:#fff}.empty-chart{text-align:center;padding:18px 10px;color:#6f778c;font-size:9px;border:1px dashed rgba(255,255,255,.07);border-radius:10px}
 .loading{text-align:center;padding:22px;color:#737c91;font-size:10px}.error{text-align:center;padding:18px;color:#ff8e9b;font-size:10px}
 .footer{max-width:900px;margin:30px auto 0;padding:25px 20px 30px;border-top:1px solid rgba(255,255,255,.05);text-align:center}.footer-links{display:flex;justify-content:center;gap:22px;margin-bottom:14px}.footer-links a{color:#727b91;text-decoration:none;font-size:10px;transition:.2s ease}.footer-links a:hover{color:#fff}.copyright{color:#4f576a;font-size:10px}
-@media(max-width:600px){.header{height:62px}.brand{font-size:20px}.logo-area{padding:21px 20px 16px}.logo-placeholder{width:74px;height:74px;border-radius:22px;font-size:13px}.nav{width:calc(100% - 16px);margin-bottom:16px}.nav a{padding:11px 4px;font-size:10px}.container{width:calc(100% - 16px)}.page-header{padding:24px 16px;border-radius:21px}.page-header h1{font-size:24px}.page-header p{font-size:10px}.highlight{font-size:8px}.date-button{padding:15px 13px}.date-icon{width:36px;height:36px;border-radius:10px;font-size:15px}.date-main{font-size:12px}.chart-head,.chart-row{grid-template-columns:72px 1fr}.chart-time{font-size:8px}.chart-number{height:27px;font-size:10px}.chart-numbers,.chart-head .numbers-head{gap:5px}.results-inner{padding:0 12px 15px}.footer-links{gap:15px}}
+@media(max-width:600px){.header{height:62px}.brand{font-size:20px}.language-toggle{right:12px;padding:6px 10px;font-size:9px}.logo-area{padding:21px 20px 16px}.logo-placeholder{width:74px;height:74px;border-radius:22px;font-size:13px}.nav{width:calc(100% - 16px);margin-bottom:16px}.nav a{padding:11px 4px;font-size:10px}.container{width:calc(100% - 16px)}.page-header{padding:24px 16px;border-radius:21px}.page-header h1{font-size:24px}.page-header p{font-size:10px}.highlight{font-size:8px}.date-button{padding:15px 13px}.date-icon{width:36px;height:36px;border-radius:10px;font-size:15px}.date-main{font-size:12px}.chart-head,.chart-row{grid-template-columns:72px 1fr}.chart-time{font-size:8px}.chart-number{height:27px;font-size:10px}.chart-numbers,.chart-head .numbers-head{gap:5px}.results-inner{padding:0 12px 15px}.footer-links{gap:15px}}
 @media(max-width:360px){.nav a{font-size:9px;padding-left:2px;padding-right:2px}.chart-head,.chart-row{grid-template-columns:66px 1fr}.chart-time{font-size:7px}.chart-number{font-size:9px}}
 </style>
 </head>
@@ -33,6 +38,7 @@ body{font-family:Arial,Helvetica,sans-serif;color:var(--text);min-height:100vh;b
 
 <header class="header">
 <div class="brand"><span>YS PLAY</span></div>
+<button class="language-toggle">English | हिंदी</button>
 </header>
 
 <div class="logo-area">
@@ -40,20 +46,20 @@ body{font-family:Arial,Helvetica,sans-serif;color:var(--text);min-height:100vh;b
 </div>
 
 <nav class="nav">
-<a href="index.html">HOME</a>
-<a href="old-charts.html" class="active">OLD CHARTS</a>
-<a href="how-to-play.html">HOW TO PLAY</a>
+<a href="index.html" data-lang="nav-home">HOME</a>
+<a href="old-charts.html" class="active" data-lang="nav-charts">OLD CHARTS</a>
+<a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
 </nav>
 
 <main class="container">
 
 <section class="page-header">
 <div class="page-header-content">
-<h1>Old Charts</h1>
-<p>View charts and numbers opened on previous game days.</p>
+<h1 data-lang="old-title">Old Charts</h1>
+<p data-lang="old-desc">View charts and numbers opened on previous game days.</p>
 <div class="highlight">
 <span class="highlight-dot"></span>
-Last 5 completed days' charts available here
+<span data-lang="old-highlight">Last 5 completed days' charts available here</span>
 </div>
 </div>
 </section>
@@ -66,12 +72,14 @@ Last 5 completed days' charts available here
 
 <footer class="footer">
 <div class="footer-links">
-<a href="index.html">HOME</a>
-<a href="old-charts.html">OLD CHARTS</a>
-<a href="how-to-play.html">HOW TO PLAY</a>
+<a href="index.html" data-lang="nav-home">HOME</a>
+<a href="old-charts.html" data-lang="nav-charts">OLD CHARTS</a>
+<a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
 </div>
 <div class="copyright">© 2026 YS PLAY. All rights reserved.</div>
 </footer>
+
+<script src="language.js"></script>
 
 <script type="module">
 
