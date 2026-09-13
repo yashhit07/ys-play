@@ -180,6 +180,33 @@ body {
 }
 
 
+.language-toggle {
+    position: absolute;
+    right: 20px;
+    background: linear-gradient(135deg, rgba(118,87,255,0.15), rgba(78,140,255,0.1));
+    border: 1px solid rgba(124,108,255,0.25);
+    color: #d9dcff;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+.language-toggle:hover {
+    background: rgba(118,87,255,0.25);
+    color: #ffffff;
+    border-color: rgba(124,108,255,0.4);
+    box-shadow: 0 4px 15px rgba(118,87,255,0.2);
+    transform: translateY(-1px);
+}
+
+
 /* =====================================================
    LOGO AREA
 ===================================================== */
@@ -1316,6 +1343,13 @@ body {
     .brand {
 
         font-size: 20px;
+    }
+
+
+    .language-toggle {
+        right: 12px;
+        padding: 6px 10px;
+        font-size: 9px;
     }
 
 
