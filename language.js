@@ -15,7 +15,10 @@ const translations = {
         "chart-res2": "Result 2",
         "chart-res3": "Result 3",
         "live-text": "LIVE • People Playing Now",
-        "live-sub": "players currently online"
+        "live-sub": "players currently online",
+        "old-title": "Old Charts",
+        "old-desc": "View charts and numbers opened on previous game days.",
+        "old-highlight": "Last 5 completed days' charts available here"
     },
     "hi": {
         "nav-home": "होम",
@@ -33,7 +36,10 @@ const translations = {
         "chart-res2": "परिणाम 2",
         "chart-res3": "परिणाम 3",
         "live-text": "लाइव • लोग अभी खेल रहे हैं",
-        "live-sub": "खिलाड़ी अभी ऑनलाइन हैं"
+        "live-sub": "खिलाड़ी अभी ऑनलाइन हैं",
+        "old-title": "पुराने चार्ट",
+        "old-desc": "पिछले गेम के दिनों में खोले गए चार्ट और नंबर देखें।",
+        "old-highlight": "पिछले 5 पूर्ण दिनों के चार्ट यहां उपलब्ध हैं"
     }
 };
 
