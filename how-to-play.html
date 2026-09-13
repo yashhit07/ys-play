@@ -1,175 +1,2177 @@
-const translations = {
-    "en": {
-        "nav-home": "HOME",
-        "nav-charts": "OLD CHARTS",
-        "nav-how": "HOW TO PLAY",
-        "hero-title": "YS PLAY",
-        "hero-sub": "Your numbers. Your charts. Your game.",
-        "timer-label": "Next Update In",
-        "timer-note": "Updates automatically",
-        "latest-head": "Latest Numbers",
-        "chart-head": "Today's Chart",
-        "chart-tag": "Latest",
-        "chart-time": "Time",
-        "chart-res1": "Result 1",
-        "chart-res2": "Result 2",
-        "chart-res3": "Result 3",
-        "live-text": "LIVE • People Playing Now",
-        "live-sub": "players currently online",
-        "old-title": "Old Charts",
-        "old-desc": "View charts and numbers opened on previous game days.",
-        "old-highlight": "Last 5 completed days' charts available here",
-        "how-title": "How To Play",
-        "how-sub": "A simple guide to understand YS PLAY, numbers, charts and virtual game points.",
-        "how-sec1": "Getting Started",
-        "how-sec1-p": "New to YS PLAY? No problem. Follow the steps below to understand the basic process, check the latest chart and keep track of your virtual game activity.",
-        "how-sec2": "How It Works",
-        "step1-t": "Contact Us",
-        "step1-p": "Message us through WhatsApp or Telegram to get started and receive the required information.",
-        "step2-t": "Get Your Player ID",
-        "step2-p": "After contacting us, you may receive a unique Player ID. Keep your ID safe for future reference.",
-        "step3-t": "Receive Virtual Points",
-        "step3-p": "Virtual game points can be used within the website's game experience according to the applicable game rules.",
-        "step4-t": "Choose Your Number",
-        "step4-p": "Select an available two-digit number and use your virtual points according to the rules of the game.",
-        "step5-t": "Check Today's Chart",
-        "step5-p": "Once the round is updated, visit the Home page and check the Today's Chart section for the latest displayed result.",
-        "step6-t": "Track Your Game Points",
-        "step6-p": "Keep track of your virtual points and activity according to the game's rules and information displayed on the website.",
-        "step7-t": "Wait For The Next Round",
-        "step7-p": "The website timer shows the next update cycle. When the timer reaches zero, the next round can begin automatically.",
-        "help-t": "Need Help?",
-        "help-p": "If you have questions about your Player ID, game points or how the website works, contact us through the available channels.",
-        "guide-t": "Game Guide",
-        "g1-t": "Select Carefully",
-        "g1-p": "Check the two-digit number carefully before continuing.",
-        "g2-t": "Check The Timer",
-        "g2-p": "Keep an eye on the countdown shown on the Home page for the next update.",
-        "g3-t": "Check Today's Chart",
-        "g3-p": "Latest displayed numbers can be viewed in the Today's Chart section.",
-        "g4-t": "View Previous Charts",
-        "g4-p": "Open Old Charts to review previously displayed chart information.",
-        "rules-t": "Important Rules",
-        "r1": "Keep your Player ID safe and do not share it unnecessarily.",
-        "r2": "Check your selected number carefully before continuing.",
-        "r3": "Always check the latest information directly on the website.",
-        "r4": "Virtual points are intended only for the website's game experience.",
-        "r5": "Points displayed on this website do not represent real money or cash value.",
-        "faq-t": "Frequently Asked Questions",
-        "f1-t": "What is a Player ID?",
-        "f1-p": "A Player ID is a unique reference number used to identify your game profile.",
-        "f2-t": "Where can I see the latest result?",
-        "f2-p": "Open the Home page and check the Today's Chart section.",
-        "f3-t": "How do I check previous results?",
-        "f3-p": "Open the Old Charts tab to view previously displayed chart information.",
-        "f4-t": "What happens when the timer ends?",
-        "f4-p": "The timer resets automatically and the next update cycle begins.",
-        "f5-t": "Are the points real money?",
-        "f5-p": "No. The points displayed on this website are virtual game points and have no cash value."
-    },
-    "hi": {
-        "nav-home": "होम",
-        "nav-charts": "पुराने चार्ट",
-        "nav-how": "कैसे खेलें",
-        "hero-title": "YS PLAY",
-        "hero-sub": "आपके नंबर. आपके चार्ट. आपका खेल.",
-        "timer-label": "अगला अपडेट",
-        "timer-note": "अपने आप अपडेट होता है",
-        "latest-head": "नवीनतम नंबर",
-        "chart-head": "आज का चार्ट",
-        "chart-tag": "नवीनतम",
-        "chart-time": "समय",
-        "chart-res1": "परिणाम 1",
-        "chart-res2": "परिणाम 2",
-        "chart-res3": "परिणाम 3",
-        "live-text": "लाइव • लोग अभी खेल रहे हैं",
-        "live-sub": "खिलाड़ी अभी ऑनलाइन हैं",
-        "old-title": "पुराने चार्ट",
-        "old-desc": "पिछले गेम के दिनों में खोले गए चार्ट और नंबर देखें।",
-        "old-highlight": "पिछले 5 पूर्ण दिनों के चार्ट यहां उपलब्ध हैं",
-        "how-title": "कैसे खेलें",
-        "how-sub": "YS PLAY, नंबर, चार्ट और वर्चुअल गेम पॉइंट्स को समझने के लिए एक आसान गाइड।",
-        "how-sec1": "शुरुआत कैसे करें",
-        "how-sec1-p": "YS PLAY पर नए हैं? कोई बात नहीं। बेसिक प्रोसेस समझने के लिए नीचे दिए गए स्टेप्स फॉलो करें।",
-        "how-sec2": "यह कैसे काम करता है",
-        "step1-t": "संपर्क करें",
-        "step1-p": "शुरू करने के लिए हमें WhatsApp या Telegram पर मैसेज करें।",
-        "step2-t": "अपना प्लेयर ID प्राप्त करें",
-        "step2-p": "हमसे संपर्क करने के बाद, आपको एक प्लेयर ID मिलेगा। इसे सुरक्षित रखें।",
-        "step3-t": "वर्चुअल पॉइंट्स प्राप्त करें",
-        "step3-p": "गेम के नियमों के अनुसार वर्चुअल गेम पॉइंट्स का उपयोग किया जा सकता है।",
-        "step4-t": "अपना नंबर चुनें",
-        "step4-p": "एक दो-अंकों का नंबर चुनें और नियमों के अनुसार अपने वर्चुअल पॉइंट्स का उपयोग करें।",
-        "step5-t": "आज का चार्ट देखें",
-        "step5-p": "राउंड अपडेट होने के बाद, होम पेज पर 'आज का चार्ट' देखें।",
-        "step6-t": "अपने गेम पॉइंट्स ट्रैक करें",
-        "step6-p": "गेम के नियमों के अनुसार अपने वर्चुअल पॉइंट्स और एक्टिविटी पर नज़र रखें।",
-        "step7-t": "अगले राउंड का इंतज़ार करें",
-        "step7-p": "टाइमर जीरो होने पर अगला राउंड अपने आप शुरू हो सकता है।",
-        "help-t": "मदद चाहिए?",
-        "help-p": "अगर आपके कोई सवाल हैं, तो हमारे संपर्क माध्यमों से हमसे बात करें।",
-        "guide-t": "गेम गाइड",
-        "g1-t": "ध्यान से चुनें",
-        "g1-p": "आगे बढ़ने से पहले दो-अंकों का नंबर ध्यान से चेक करें।",
-        "g2-t": "टाइमर चेक करें",
-        "g2-p": "होम पेज पर अगले अपडेट के लिए उलटी गिनती पर नज़र रखें।",
-        "g3-t": "आज का चार्ट देखें",
-        "g3-p": "लेटेस्ट नंबर 'आज का चार्ट' सेक्शन में देखे जा सकते हैं।",
-        "g4-t": "पिछले चार्ट देखें",
-        "g4-p": "पुरानी जानकारी देखने के लिए 'पुराने चार्ट' खोलें।",
-        "rules-t": "महत्वपूर्ण नियम",
-        "r1": "अपना प्लेयर ID सुरक्षित रखें और इसे किसी के साथ शेयर न करें।",
-        "r2": "आगे बढ़ने से पहले अपना नंबर ध्यान से चेक करें।",
-        "r3": "हमेशा वेबसाइट पर सीधे लेटेस्ट जानकारी चेक करें।",
-        "r4": "वर्चुअल पॉइंट्स केवल वेबसाइट के गेम के लिए हैं।",
-        "r5": "इस वेबसाइट पर दिखाए गए पॉइंट्स असली पैसे नहीं हैं।",
-        "faq-t": "अक्सर पूछे जाने वाले सवाल",
-        "f1-t": "प्लेयर ID क्या है?",
-        "f1-p": "प्लेयर ID एक यूनिक नंबर है जो आपकी गेम प्रोफाइल की पहचान करता है।",
-        "f2-t": "मैं लेटेस्ट रिज़ल्ट कहाँ देख सकता हूँ?",
-        "f2-p": "होम पेज खोलें और 'आज का चार्ट' सेक्शन चेक करें।",
-        "f3-t": "मैं पिछले रिज़ल्ट कैसे चेक करूँ?",
-        "f3-p": "पिछले चार्ट की जानकारी देखने के लिए 'पुराने चार्ट' टैब खोलें।",
-        "f4-t": "टाइमर खत्म होने पर क्या होता है?",
-        "f4-p": "टाइमर अपने आप रीसेट हो जाता है और अगला अपडेट चक्र शुरू हो जाता है।",
-        "f5-t": "क्या ये पॉइंट्स असली पैसे हैं?",
-        "f5-p": "नहीं। इस वेबसाइट पर दिखाए गए पॉइंट्स वर्चुअल हैं और इनकी कोई नकद कीमत नहीं है।"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How To Play | YS PLAY</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --bg:#070912;
+
+    --card:rgba(18,22,35,0.82);
+
+    --border:rgba(255,255,255,0.09);
+
+    --text:#ffffff;
+
+    --muted:#8c94aa;
+
+    --purple:#7657ff;
+
+    --purple-light:#9279ff;
+
+    --blue:#4e8cff;
+
+    --green:#40e58b;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(62,105,255,0.20),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 8%,
+            rgba(157,66,255,0.20),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(42,88,255,0.08),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(7,9,18,0.95),
+            rgba(7,9,18,0.78)
+        );
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.15);
+}
+
+
+.header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-1px;
+
+    transform:translateX(-50%);
+
+    width:110px;
+
+    height:1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(118,87,255,0.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(118,87,255,0.7);
+}
+
+
+.brand{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+}
+
+
+.brand span{
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #8b7cff,
+            #67a4ff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* LANGUAGE BUTTON CSS */
+.language-toggle{
+    position:absolute;
+    right:20px;
+    background:linear-gradient(135deg,rgba(118,87,255,0.15),rgba(78,140,255,0.1));
+    border:1px solid rgba(124,108,255,0.25);
+    color:#d9dcff;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:700;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    transition:all 0.3s ease;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.language-toggle:hover{
+    background:rgba(118,87,255,0.25);
+    color:#fff;
+    border-color:rgba(124,108,255,0.4);
+    box-shadow:0 4px 15px rgba(118,87,255,0.2);
+    transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   LOGO AREA
+===================================================== */
+
+.logo-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:24px 20px 18px;
+
+    position:relative;
+}
+
+
+.logo-area::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:150px;
+
+    height:110px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(118,87,255,0.28),
+            transparent 70%
+        );
+
+    filter:blur(18px);
+
+    pointer-events:none;
+}
+
+
+.logo-placeholder{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    text-align:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #5968ff,
+            #9b4dff
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.17);
+
+    box-shadow:
+
+        0 12px 35px rgba(105,78,255,0.38),
+
+        0 0 30px rgba(105,78,255,0.14),
+
+        inset 0 1px 1px rgba(255,255,255,0.3);
+
+    animation:
+        logoFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:translateY(0);
     }
-};
 
-function setLanguage(lang) {
-    localStorage.setItem("ysplay_lang", lang);
-    
-    const elements = document.querySelectorAll("[data-lang]");
-    elements.forEach(el => {
-        const key = el.getAttribute("data-lang");
-        if(translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-        }
-    });
-
-    const langBtns = document.querySelectorAll(".language-toggle");
-    langBtns.forEach(btn => {
-        if (lang === "en") {
-            btn.innerHTML = "English | <strong>हिंदी</strong>";
-        } else {
-            btn.innerHTML = "<strong>English</strong> | हिंदी";
-        }
-    });
+    50%{
+        transform:translateY(-4px);
+    }
 }
 
-function toggleLanguage() {
-    let currentLang = localStorage.getItem("ysplay_lang") || "en";
-    let newLang = currentLang === "en" ? "hi" : "en";
-    setLanguage(newLang);
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav{
+
+    width:calc(100% - 24px);
+
+    max-width:900px;
+
+    margin:0 auto 20px;
+
+    padding:5px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:5px;
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    border-radius:17px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.14);
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-    let savedLang = localStorage.getItem("ysplay_lang") || "en";
-    setLanguage(savedLang);
 
-    const langBtns = document.querySelectorAll(".language-toggle");
-    langBtns.forEach(btn => {
-        btn.addEventListener("click", toggleLanguage);
-    });
-});
+.nav a{
+
+    flex:1;
+
+    max-width:180px;
+
+    padding:11px 10px;
+
+    text-align:center;
+
+    color:#9ca4b8;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:0.2px;
+
+    border-radius:11px;
+
+    transition:
+        0.25s ease;
+}
+
+
+.nav a:hover{
+
+    color:#ffffff;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.nav a.active{
+
+    color:#ffffff;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(105,87,255,0.45),
+            rgba(75,120,255,0.22)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.20);
+
+    box-shadow:
+
+        inset 0 1px rgba(255,255,255,0.11),
+
+        0 4px 18px rgba(65,70,255,0.20);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+
+    width:calc(100% - 24px);
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:32px 18px 30px;
+
+    border-radius:25px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.085),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.22);
+
+    text-align:center;
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+
+    height:230px;
+
+    left:-90px;
+
+    top:-100px;
+
+    background:#5268ff;
+
+    filter:blur(100px);
+
+    opacity:0.14;
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+
+    height:230px;
+
+    right:-100px;
+
+    bottom:-130px;
+
+    background:#9d4cff;
+
+    filter:blur(100px);
+
+    opacity:0.12;
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.hero h1{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:-0.5px;
+}
+
+
+.hero-subtitle{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:8px;
+
+    line-height:18px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-heading{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-top:20px;
+
+    margin-bottom:12px;
+
+    padding-left:4px;
+}
+
+
+.section-heading .line{
+
+    width:3px;
+
+    height:18px;
+
+    border-radius:5px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #9279ff,
+            #4e8cff
+        );
+
+    box-shadow:
+        0 0 12px rgba(118,87,255,0.65);
+}
+
+
+.section-heading h2{
+
+    font-size:16px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   INTRO CARD
+===================================================== */
+
+.intro-card{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.15);
+}
+
+
+.intro-card p{
+
+    color:#858da2;
+
+    font-size:11px;
+
+    line-height:18px;
+}
+
+
+/* =====================================================
+   STEPS
+===================================================== */
+
+.steps{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+
+.step{
+
+    display:flex;
+
+    gap:14px;
+
+    padding:17px;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.020)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.step:hover{
+
+    transform:translateY(-2px);
+
+    border-color:
+        rgba(124,108,255,0.25);
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,0.18);
+}
+
+
+.step-number{
+
+    min-width:42px;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(105,87,255,0.48),
+            rgba(75,120,255,0.20)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.25);
+
+    color:#ffffff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 0 18px rgba(105,87,255,0.12);
+}
+
+
+.step-content{
+
+    flex:1;
+}
+
+
+.step-content h3{
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin-top:2px;
+
+    margin-bottom:6px;
+}
+
+
+.step-content p{
+
+    color:#858da2;
+
+    font-size:10.5px;
+
+    line-height:17px;
+}
+
+
+/* =====================================================
+   CONTACT CARD
+===================================================== */
+
+.contact-card{
+
+    margin-top:12px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(105,87,255,0.10),
+            rgba(75,120,255,0.035)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.18);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.14);
+}
+
+
+.contact-card h3{
+
+    font-size:15px;
+
+    margin-bottom:7px;
+}
+
+
+.contact-card p{
+
+    color:#858da2;
+
+    font-size:10.5px;
+
+    line-height:17px;
+
+    margin-bottom:15px;
+}
+
+
+.contact-buttons{
+
+    display:flex;
+
+    gap:10px;
+}
+
+
+.contact-btn{
+
+    flex:1;
+
+    min-height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#ffffff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:0.3px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(105,87,255,0.45),
+            rgba(75,120,255,0.20)
+        );
+
+    border:
+        1px solid rgba(124,108,255,0.25);
+
+    transition:
+        0.25s ease;
+}
+
+
+.contact-btn:hover{
+
+    transform:translateY(-2px);
+
+    border-color:
+        rgba(145,125,255,0.50);
+
+    box-shadow:
+        0 8px 22px rgba(82,75,255,0.15);
+}
+
+
+/* =====================================================
+   POINTS / GAME GUIDE
+===================================================== */
+
+.guide-card{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.15);
+}
+
+
+.guide-row{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    padding:11px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.045);
+}
+
+
+.guide-row:first-child{
+
+    padding-top:0;
+}
+
+
+.guide-row:last-child{
+
+    padding-bottom:0;
+
+    border-bottom:none;
+}
+
+
+.guide-icon{
+
+    min-width:30px;
+
+    width:30px;
+
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:
+        rgba(118,87,255,0.10);
+
+    border:
+        1px solid rgba(124,108,255,0.15);
+
+    color:#9c89ff;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+.guide-text{
+
+    flex:1;
+}
+
+
+.guide-text strong{
+
+    display:block;
+
+    font-size:11px;
+
+    margin-bottom:4px;
+}
+
+
+.guide-text span{
+
+    color:#858da2;
+
+    font-size:9.5px;
+
+    line-height:15px;
+}
+
+
+/* =====================================================
+   IMPORTANT RULES
+===================================================== */
+
+.rules{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+
+.rule{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    color:#858da2;
+
+    font-size:10px;
+
+    line-height:16px;
+}
+
+
+.rule:last-child{
+
+    margin-bottom:0;
+}
+
+
+.tick{
+
+    min-width:18px;
+
+    color:#8d78ff;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+
+.faq-item{
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+}
+
+
+.faq-item h4{
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+}
+
+
+.faq-item p{
+
+    color:#7e879c;
+
+    font-size:9.5px;
+
+    line-height:15px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    max-width:900px;
+
+    margin:30px auto 0;
+
+    padding:25px 20px 30px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+
+    text-align:center;
+}
+
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:22px;
+
+    margin-bottom:14px;
+}
+
+
+.footer-links a{
+
+    color:#727b91;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    transition:
+        0.2s ease;
+}
+
+
+.footer-links a:hover{
+
+    color:#ffffff;
+}
+
+
+.copyright{
+
+    color:#4f576a;
+
+    font-size:10px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .header{
+
+        height:62px;
+    }
+
+
+    .brand{
+
+        font-size:20px;
+    }
+
+    .language-toggle{
+        right:12px;
+        padding:6px 10px;
+        font-size:9px;
+    }
+
+
+    .logo-area{
+
+        padding:21px 20px 16px;
+    }
+
+
+    .logo-placeholder{
+
+        width:74px;
+
+        height:74px;
+
+        border-radius:22px;
+
+        font-size:13px;
+    }
+
+
+    .nav{
+
+        width:calc(100% - 16px);
+
+        margin-bottom:16px;
+
+        padding:5px;
+    }
+
+
+    .nav a{
+
+        padding:11px 4px;
+
+        font-size:10px;
+
+        letter-spacing:0;
+    }
+
+
+    .container{
+
+        width:calc(100% - 16px);
+    }
+
+
+    .hero{
+
+        padding:27px 12px 28px;
+
+        border-radius:21px;
+    }
+
+
+    .hero h1{
+
+        font-size:25px;
+    }
+
+
+    .hero-subtitle{
+
+        font-size:11px;
+
+        line-height:17px;
+    }
+
+
+    .section-heading{
+
+        margin-top:17px;
+
+        margin-bottom:10px;
+    }
+
+
+    .section-heading h2{
+
+        font-size:14px;
+    }
+
+
+    .intro-card{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .intro-card p{
+
+        font-size:10px;
+
+        line-height:16px;
+    }
+
+
+    .step{
+
+        gap:11px;
+
+        padding:14px;
+
+        border-radius:16px;
+    }
+
+
+    .step-number{
+
+        min-width:36px;
+
+        width:36px;
+
+        height:36px;
+
+        border-radius:11px;
+
+        font-size:10px;
+    }
+
+
+    .step-content h3{
+
+        font-size:12px;
+
+        margin-bottom:5px;
+    }
+
+
+    .step-content p{
+
+        font-size:9px;
+
+        line-height:15px;
+    }
+
+
+    .contact-card{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .contact-card h3{
+
+        font-size:13px;
+    }
+
+
+    .contact-card p{
+
+        font-size:9px;
+
+        line-height:15px;
+    }
+
+
+    .contact-btn{
+
+        min-height:38px;
+
+        font-size:9px;
+    }
+
+
+    .guide-card{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .guide-text strong{
+
+        font-size:10px;
+    }
+
+
+    .guide-text span{
+
+        font-size:9px;
+
+        line-height:14px;
+    }
+
+
+    .rules{
+
+        padding:16px 14px;
+
+        border-radius:18px;
+    }
+
+
+    .rule{
+
+        font-size:9px;
+
+        line-height:14px;
+
+        margin-bottom:10px;
+    }
+
+
+    .faq-item{
+
+        padding:14px;
+
+        border-radius:14px;
+    }
+
+
+    .faq-item h4{
+
+        font-size:10px;
+    }
+
+
+    .faq-item p{
+
+        font-size:9px;
+
+        line-height:14px;
+    }
+
+
+    .footer-links{
+
+        gap:15px;
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA SMALL PHONES
+===================================================== */
+
+@media(max-width:360px){
+
+    .nav a{
+
+        font-size:9px;
+
+        padding-left:2px;
+
+        padding-right:2px;
+    }
+
+
+    .hero h1{
+
+        font-size:23px;
+    }
+
+
+    .step{
+
+        padding:12px;
+    }
+
+
+    .step-number{
+
+        min-width:34px;
+
+        width:34px;
+
+        height:34px;
+    }
+
+
+    .contact-buttons{
+
+        gap:7px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="brand">
+        <span>YS PLAY</span>
+    </div>
+
+    <button class="language-toggle">English | हिंदी</button>
+
+</header>
+
+
+<!-- =====================================================
+     LOGO
+===================================================== -->
+
+<div class="logo-area">
+
+    <div class="logo-placeholder">
+
+        YS<br>LOGO
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="nav">
+
+    <a href="index.html" data-lang="nav-home">
+        HOME
+    </a>
+
+    <a href="old-charts.html" data-lang="nav-charts">
+        OLD CHARTS
+    </a>
+
+    <a href="how-to-play.html" class="active" data-lang="nav-how">
+        HOW TO PLAY
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1 data-lang="how-title">
+                How To Play
+            </h1>
+
+            <div class="hero-subtitle" data-lang="how-sub">
+
+                A simple guide to understand YS PLAY,
+                numbers, charts and virtual game points.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         INTRO
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2 data-lang="how-sec1">
+            Getting Started
+        </h2>
+
+    </div>
+
+
+    <section class="intro-card">
+
+        <p data-lang="how-sec1-p">
+
+            New to YS PLAY? No problem. Follow the steps
+            below to understand the basic process, check
+            the latest chart and keep track of your virtual
+            game activity.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         HOW IT WORKS
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2 data-lang="how-sec2">
+            How It Works
+        </h2>
+
+    </div>
+
+
+    <section class="steps">
+
+
+        <!-- STEP 01 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step1-t">
+                    Contact Us
+                </h3>
+
+                <p data-lang="step1-p">
+
+                    Message us through WhatsApp or Telegram
+                    to get started and receive the required
+                    information.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 02 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step2-t">
+                    Get Your Player ID
+                </h3>
+
+                <p data-lang="step2-p">
+
+                    After contacting us, you may receive a
+                    unique Player ID. Keep your ID safe for
+                    future reference.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 03 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step3-t">
+                    Receive Virtual Points
+                </h3>
+
+                <p data-lang="step3-p">
+
+                    Virtual game points can be used within
+                    the website's game experience according
+                    to the applicable game rules.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 04 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step4-t">
+                    Choose Your Number
+                </h3>
+
+                <p data-lang="step4-p">
+
+                    Select an available two-digit number and
+                    use your virtual points according to the
+                    rules of the game.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 05 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step5-t">
+                    Check Today's Chart
+                </h3>
+
+                <p data-lang="step5-p">
+
+                    Once the round is updated, visit the Home
+                    page and check the Today's Chart section
+                    for the latest displayed result.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 06 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step6-t">
+                    Track Your Game Points
+                </h3>
+
+                <p data-lang="step6-p">
+
+                    Keep track of your virtual points and
+                    activity according to the game's rules
+                    and information displayed on the website.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 07 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                07
+            </div>
+
+            <div class="step-content">
+
+                <h3 data-lang="step7-t">
+                    Wait For The Next Round
+                </h3>
+
+                <p data-lang="step7-p">
+
+                    The website timer shows the next update
+                    cycle. When the timer reaches zero, the
+                    next round can begin automatically.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================= -->
+
+    <section class="contact-card">
+
+        <h3 data-lang="help-t">
+            Need Help?
+        </h3>
+
+        <p data-lang="help-p">
+
+            If you have questions about your Player ID,
+            game points or how the website works, contact
+            us through the available channels.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+            <a
+                href="#"
+                class="contact-btn"
+            >
+                WHATSAPP
+            </a>
+
+
+            <a
+                href="#"
+                class="contact-btn"
+            >
+                TELEGRAM
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         GAME GUIDE
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2 data-lang="guide-t">
+            Game Guide
+        </h2>
+
+    </div>
+
+
+    <section class="guide-card">
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                01
+            </div>
+
+            <div class="guide-text">
+
+                <strong data-lang="g1-t">
+                    Select Carefully
+                </strong>
+
+                <span data-lang="g1-p">
+
+                    Check the two-digit number carefully
+                    before continuing.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                02
+            </div>
+
+            <div class="guide-text">
+
+                <strong data-lang="g2-t">
+                    Check The Timer
+                </strong>
+
+                <span data-lang="g2-p">
+
+                    Keep an eye on the countdown shown on
+                    the Home page for the next update.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                03
+            </div>
+
+            <div class="guide-text">
+
+                <strong data-lang="g3-t">
+                    Check Today's Chart
+                </strong>
+
+                <span data-lang="g3-p">
+
+                    Latest displayed numbers can be viewed
+                    in the Today's Chart section.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-row">
+
+            <div class="guide-icon">
+                04
+            </div>
+
+            <div class="guide-text">
+
+                <strong data-lang="g4-t">
+                    View Previous Charts
+                </strong>
+
+                <span data-lang="g4-p">
+
+                    Open Old Charts to review previously
+                    displayed chart information.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         IMPORTANT RULES
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2 data-lang="rules-t">
+            Important Rules
+        </h2>
+
+    </div>
+
+
+    <section class="rules">
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span data-lang="r1">
+
+                Keep your Player ID safe and do not share
+                it unnecessarily.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span data-lang="r2">
+
+                Check your selected number carefully before
+                continuing.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span data-lang="r3">
+
+                Always check the latest information directly
+                on the website.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span data-lang="r4">
+
+                Virtual points are intended only for the
+                website's game experience.
+
+            </span>
+
+        </div>
+
+
+        <div class="rule">
+
+            <span class="tick">
+                ✓
+            </span>
+
+            <span data-lang="r5">
+
+                Points displayed on this website do not
+                represent real money or cash value.
+
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         FAQ
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <h2 data-lang="faq-t">
+            Frequently Asked Questions
+        </h2>
+
+    </div>
+
+
+    <section class="faq">
+
+
+        <div class="faq-item">
+
+            <h4 data-lang="f1-t">
+                What is a Player ID?
+            </h4>
+
+            <p data-lang="f1-p">
+
+                A Player ID is a unique reference number
+                used to identify your game profile.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4 data-lang="f2-t">
+                Where can I see the latest result?
+            </h4>
+
+            <p data-lang="f2-p">
+
+                Open the Home page and check the Today's
+                Chart section.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4 data-lang="f3-t">
+                How do I check previous results?
+            </h4>
+
+            <p data-lang="f3-p">
+
+                Open the Old Charts tab to view previously
+                displayed chart information.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4 data-lang="f4-t">
+                What happens when the timer ends?
+            </h4>
+
+            <p data-lang="f4-p">
+
+                The timer resets automatically and the next
+                update cycle begins.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h4 data-lang="f5-t">
+                Are the points real money?
+            </h4>
+
+            <p data-lang="f5-p">
+
+                No. The points displayed on this website are
+                virtual game points and have no cash value.
+
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-links">
+
+
+        <a href="index.html" data-lang="nav-home">
+            HOME
+        </a>
+
+
+        <a href="old-charts.html" data-lang="nav-charts">
+            OLD CHARTS
+        </a>
+
+
+        <a href="how-to-play.html" data-lang="nav-how">
+            HOW TO PLAY
+        </a>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 YS PLAY. All rights reserved.
+
+    </div>
+
+
+</footer>
+
+<script src="language.js"></script>
+</body>
+
+</html>
