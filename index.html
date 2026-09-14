@@ -9,6 +9,20 @@
 
 <title>YS PLAY</title>
 
+<!-- =====================================================
+     PWA (APP) & WHATSAPP PREVIEW TAGS (NEW)
+===================================================== -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#070912">
+<link rel="apple-touch-icon" href="logo.png">
+
+<meta property="og:title" content="YS PLAY - Live Result">
+<meta property="og:description" content="Check latest numbers and live charts directly on YS PLAY. 45 Games Daily!">
+<meta property="og:image" content="https://ys-play.gzone.workers.dev/logo.png">
+<meta property="og:url" content="https://ys-play.gzone.workers.dev/">
+<meta property="og:type" content="website">
+<!-- ===================================================== -->
+
 <style>
 
 /* =====================================================
@@ -478,7 +492,6 @@ body {
 
     letter-spacing: 0.3px;
     
-    /* Yaha ye line Firebase ke spaces ko exactly waisa hi dikhayegi */
     white-space: pre; 
 }
 
@@ -1636,6 +1649,10 @@ body {
 
 <body>
 
+<!-- =====================================================
+     SOUND NOTIFICATION FOR RESULTS (NEW)
+===================================================== -->
+<audio id="resultSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
 
 <!-- =====================================================
      HEADER
@@ -1755,7 +1772,7 @@ English | हिंदी
 
                     </div>
 
-                    <!-- Yaha par pehle 15:00 likha tha, usko maine —:— kar diya taaki flash na ho -->
+
                     <div
                         class="timer"
                         id="timer">
@@ -1821,7 +1838,6 @@ English | हिंदी
 
         <div class="game-schedule-row">
 
-            <!-- Yaha par games ko 12 se 13 update kar diya gaya hai (total 45 games) -->
             <div class="game-schedule-item">10 AM–1 PM · 13 Games</div>
             <div class="game-schedule-item break">1–2 PM · BREAK</div>
             <div class="game-schedule-item">2–5 PM · 13 Games</div>
@@ -1905,7 +1921,6 @@ English | हिंदी
         <tr><td>12:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
         <tr><td>12:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
         
-        <!-- Yaha par 1:00 PM, 5:00 PM, 9:00 PM rows add kardi gayi hain -->
         <tr><td>1:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
 
         <!-- 2 PM SESSION -->
@@ -2037,30 +2052,26 @@ function updateTimer() {
     const ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
     const currentSecs = ist.getHours() * 3600 + ist.getMinutes() * 60 + ist.getSeconds();
 
-    // Din ke saare 45 games ke minutes exactly yahan define kiye hain
     let scheduleMins = [];
-    for (let i = 600; i <= 780; i += 15) scheduleMins.push(i); // 10 AM se 1 PM tak (13 games)
-    for (let i = 840; i <= 1020; i += 15) scheduleMins.push(i); // 2 PM se 5 PM tak (13 games)
-    for (let i = 1080; i <= 1260; i += 15) scheduleMins.push(i); // 6 PM se 9 PM tak (13 games)
-    for (let i = 1320; i <= 1370; i += 10) scheduleMins.push(i); // 10 PM se 10:50 PM (6 Bonus games)
+    for (let i = 600; i <= 780; i += 15) scheduleMins.push(i); 
+    for (let i = 840; i <= 1020; i += 15) scheduleMins.push(i); 
+    for (let i = 1080; i <= 1260; i += 15) scheduleMins.push(i); 
+    for (let i = 1320; i <= 1370; i += 10) scheduleMins.push(i); 
 
-    // Check karo agla game kab hai
     let nextGameMins = scheduleMins.find(m => m * 60 > currentSecs);
     let isTomorrow = false;
 
     if (!nextGameMins) {
-        nextGameMins = scheduleMins[0]; // Raat 10:50 ke baad direct agli subah 10 AM wala uthayega
+        nextGameMins = scheduleMins[0]; 
         isTomorrow = true;
     }
 
     const nextGameSecs = nextGameMins * 60 + (isTomorrow ? 24 * 3600 : 0);
     const diffSecs = nextGameSecs - currentSecs;
 
-    // Slot ka time (Bonus ke liye 10 mins, baaki ke liye 15 mins)
     const isBonus = nextGameMins >= 1320 && nextGameMins <= 1370;
     const slotDurationSecs = isBonus ? 10 * 60 : 15 * 60;
 
-    // Agar agli game me slot duration se zyada time bacha hai, matlab ye pakka BREAK hai!
     const isBreak = diffSecs > slotDurationSecs;
 
     const timer = document.getElementById("timer");
@@ -2077,7 +2088,6 @@ function updateTimer() {
         if (timerArea) timerArea.classList.remove("warning");
         if (timerLabel) timerLabel.style.visibility = "hidden";
 
-        // Break ke waqt neeche agle game ka time dikhane ke liye
         let displayHour = Math.floor(nextGameMins / 60);
         let displayMin = nextGameMins % 60;
         let ampm = displayHour >= 12 ? 'PM' : 'AM';
@@ -2205,7 +2215,7 @@ try {
 
 
 // ==========================================
-// 3. DAILY RESULTS LOGIC
+// 3. DAILY RESULTS LOGIC & SOUND NOTIFICATION
 // ==========================================
 const today = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Kolkata"
@@ -2213,6 +2223,7 @@ const today = new Intl.DateTimeFormat("en-CA", {
 
 const gamesRef = collection(db, "daily_results", today, "games");
 let todayGames = [];
+let lastPlayedTime = null; // Ye line sound ko control karegi
 
 function getISTNow() {
     const now = new Date();
@@ -2292,6 +2303,16 @@ function renderReleasedResults() {
         document.getElementById("latest1").textContent = latestGame.result1 || "—";
         document.getElementById("latest2").textContent = latestGame.result2 || "—";
         document.getElementById("latest3").textContent = latestGame.result3 || "—";
+
+        // Yaha par naya result aane par sound bajjne ka logic hai
+        if (lastPlayedTime !== latestGame.time) {
+            if (lastPlayedTime !== null) { 
+                const bell = document.getElementById("resultSound");
+                if (bell) bell.play().catch(e => console.log("Sound autoplay blocked by browser"));
+            }
+            lastPlayedTime = latestGame.time;
+        }
+
     } else {
         document.getElementById("latest1").textContent = "—";
         document.getElementById("latest2").textContent = "—";
