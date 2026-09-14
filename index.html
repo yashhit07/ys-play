@@ -2384,7 +2384,8 @@ import {
     getFirestore,
     collection,
     onSnapshot,
-    doc
+    doc,
+    getDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -2403,20 +2404,46 @@ const db = getFirestore(app);
 // 2. LIVE NOTICE TICKER
 // ==========================================
 const noticeRef = doc(db, "settings", "notice");
-onSnapshot(noticeRef, (docSnap) => {
-    if (docSnap.exists()) {
-        const data = docSnap.data();
-        if (data.text) {
-            const track = document.getElementById("noticeTrack");
-            if (track) {
-                track.innerHTML = `
-                    <div class="notice-item">${data.text}</div>
-                    <div class="notice-item" aria-hidden="true">${data.text}</div>
-                `;
+
+// Pehle try karte hain onSnapshot se (Live update)
+try {
+    onSnapshot(noticeRef, (docSnap) => {
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            if (data.text) {
+                const track = document.getElementById("noticeTrack");
+                if (track) {
+                    track.innerHTML = `
+                        <div class="notice-item">${data.text}</div>
+                        <div class="notice-item" aria-hidden="true">${data.text}</div>
+                    `;
+                }
             }
+        } else {
+             // Agar document abhi nahi mila, toh default dikhao
+             const track = document.getElementById("noticeTrack");
+                if (track) {
+                    track.innerHTML = `
+                        <div class="notice-item">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
+                        <div class="notice-item" aria-hidden="true">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
+                    `;
+                }
         }
-    }
-});
+    }, (error) => {
+        console.error("Notice Snapshot Error:", error);
+        // Agar error aaye (jaise rules block karein), tab bhi default message dikhe, "Loading..." na atke.
+        const track = document.getElementById("noticeTrack");
+        if (track) {
+             track.innerHTML = `
+                <div class="notice-item">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
+                <div class="notice-item" aria-hidden="true">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
+            `;
+        }
+    });
+} catch(e) {
+    console.error("Notice Setup Error", e);
+}
+
 
 // ==========================================
 // 3. DAILY RESULTS LOGIC
@@ -2526,6 +2553,5 @@ onSnapshot(gamesRef, (snapshot) => {
 setInterval(renderReleasedResults, 1000);
       
 </script>
-
 </body>
 </html>
