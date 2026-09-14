@@ -477,13 +477,9 @@ body {
     font-weight: 700;
 
     letter-spacing: 0.3px;
-}
-
-.notice-separator {
-
-    color: #9279ff;
-
-    padding: 0 12px;
+    
+    /* Yaha ye line Firebase ke spaces ko exactly waisa hi dikhayegi */
+    white-space: pre; 
 }
 
 @keyframes noticeScroll {
@@ -1700,7 +1696,6 @@ English | हिंदी
 <div class="notice-ticker" aria-label="Important notice">
 
     <div class="notice-track" id="noticeTrack">
-        <!-- Text from Firebase will appear here -->
         <div class="notice-item">Loading notice...</div>
         <div class="notice-item" aria-hidden="true">Loading notice...</div>
     </div>
@@ -1760,12 +1755,12 @@ English | हिंदी
 
                     </div>
 
-
+                    <!-- Yaha par pehle 15:00 likha tha, usko maine —:— kar diya taaki flash na ho -->
                     <div
                         class="timer"
                         id="timer">
 
-                        15:00
+                        —:—
 
                     </div>
 
@@ -1783,7 +1778,7 @@ English | हिंदी
 
 
             <!-- =========================================
-                 LATEST NUMBERS (DASHES FOR NO FLASHING)
+                 LATEST NUMBERS
             ========================================= -->
 
             <div class="numbers-heading" data-lang="latest-head">
@@ -1826,23 +1821,24 @@ English | हिंदी
 
         <div class="game-schedule-row">
 
-            <div class="game-schedule-item">10 AM–1 PM · 12 Games</div>
+            <!-- Yaha par games ko 12 se 13 update kar diya gaya hai (total 45 games) -->
+            <div class="game-schedule-item">10 AM–1 PM · 13 Games</div>
             <div class="game-schedule-item break">1–2 PM · BREAK</div>
-            <div class="game-schedule-item">2–5 PM · 12 Games</div>
+            <div class="game-schedule-item">2–5 PM · 13 Games</div>
             <div class="game-schedule-item break">5–6 PM · BREAK</div>
-            <div class="game-schedule-item">6–9 PM · 12 Games</div>
+            <div class="game-schedule-item">6–9 PM · 13 Games</div>
             <div class="game-schedule-item break">9–10 PM · BREAK</div>
             <div class="game-schedule-item bonus">10–11 PM · ⭐ 6 Bonus Games</div>
 
         </div>
 
-        <div class="game-schedule-total">42 Games Daily</div>
+        <div class="game-schedule-total">45 Games Daily</div>
 
     </div>
 
 
     <!-- =================================================
-         TODAY'S CHART (DASHES IN 1ST ROW TOO)
+         TODAY'S CHART
     ================================================= -->
 
     <section class="section">
@@ -1876,23 +1872,10 @@ English | हिंदी
     <thead>
 
         <tr>
-
-            <th data-lang="chart-time">
-                Time
-            </th>
-
-            <th data-lang="chart-res1">
-                Result 1
-            </th>
-
-            <th data-lang="chart-res2">
-                Result 2
-            </th>
-
-            <th data-lang="chart-res3">
-                Result 3
-            </th>
-
+            <th data-lang="chart-time">Time</th>
+            <th data-lang="chart-res1">Result 1</th>
+            <th data-lang="chart-res2">Result 2</th>
+            <th data-lang="chart-res3">Result 3</th>
         </tr>
 
     </thead>
@@ -1902,278 +1885,69 @@ English | हिंदी
 
 
         <tr class="latest">
-
             <td>
                 10:00 AM
-                <span class="latest-badge">
-                    NEW
-                </span>
+                <span class="latest-badge">NEW</span>
             </td>
-
-            <td>—</td>
-
-            <td>—</td>
-
-            <td>—</td>
-
-        </tr>
-
-
-        <tr>
-            <td>10:15 AM</td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
         </tr>
-        <tr>
-            <td>10:30 AM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>10:45 AM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>11:00 AM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>11:15 AM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>11:30 AM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>11:45 AM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>12:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>12:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>12:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>12:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
+        <tr><td>10:15 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:30 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:45 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>11:00 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>11:15 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>11:30 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>11:45 AM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>12:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>12:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>12:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>12:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        
+        <!-- Yaha par 1:00 PM, 5:00 PM, 9:00 PM rows add kardi gayi hain -->
+        <tr><td>1:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
 
         <!-- 2 PM SESSION -->
 
-        <tr>
-            <td>2:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>2:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>2:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>2:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>3:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>3:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>3:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>3:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>4:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>4:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>4:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>4:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
+        <tr><td>2:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>2:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>2:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>2:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>3:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>3:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>3:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>3:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>4:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>4:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>4:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>4:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>5:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
 
         <!-- 6 PM SESSION -->
 
-        <tr>
-            <td>6:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>6:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>6:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>6:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>7:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>7:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>7:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>7:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>8:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>8:15 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>8:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>8:45 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
+        <tr><td>6:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>6:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>6:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>6:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>7:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>7:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>7:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>7:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>8:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>8:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>8:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>8:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>9:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
 
         <!-- BONUS SESSION -->
 
-        <tr>
-            <td>10:00 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>10:10 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>10:20 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>10:30 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>10:40 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr>
-            <td>10:50 PM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
+        <tr><td>10:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:10 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:20 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:40 PM</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>10:50 PM</td><td>—</td><td>—</td><td>—</td></tr>
 
     </tbody>
 
@@ -2255,59 +2029,39 @@ English | हिंदी
 <script>
 
 /* =====================================================
-   15 MINUTE TIMER & SCHEDULE
+   SMART TIMER LOGIC (WITH PRECISE BREAKS)
 ===================================================== */
 
 function updateTimer() {
     const now = new Date();
     const ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-    const hours = ist.getHours();
-    const minutes = ist.getMinutes();
+    const currentSecs = ist.getHours() * 3600 + ist.getMinutes() * 60 + ist.getSeconds();
 
-    let target;
-    let isBreak = false;
-    let slotDuration = 15 * 60; 
+    // Din ke saare 45 games ke minutes exactly yahan define kiye hain
+    let scheduleMins = [];
+    for (let i = 600; i <= 780; i += 15) scheduleMins.push(i); // 10 AM se 1 PM tak (13 games)
+    for (let i = 840; i <= 1020; i += 15) scheduleMins.push(i); // 2 PM se 5 PM tak (13 games)
+    for (let i = 1080; i <= 1260; i += 15) scheduleMins.push(i); // 6 PM se 9 PM tak (13 games)
+    for (let i = 1320; i <= 1370; i += 10) scheduleMins.push(i); // 10 PM se 10:50 PM (6 Bonus games)
 
-    if (hours >= 10 && hours < 13) {
-        target = new Date(ist);
-        const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
-        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
-        else target.setHours(hours + 1, 0, 0, 0);
-        slotDuration = 15 * 60;
-    } 
-    else if (hours >= 13 && hours < 14) {
-        isBreak = true;
-    } 
-    else if (hours >= 14 && hours < 17) {
-        target = new Date(ist);
-        const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
-        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
-        else target.setHours(hours + 1, 0, 0, 0);
-        slotDuration = 15 * 60;
-    } 
-    else if (hours >= 17 && hours < 18) {
-        isBreak = true;
-    } 
-    else if (hours >= 18 && hours < 21) {
-        target = new Date(ist);
-        const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
-        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
-        else target.setHours(hours + 1, 0, 0, 0);
-        slotDuration = 15 * 60;
-    } 
-    else if (hours >= 21 && hours < 22) {
-        isBreak = true;
-    } 
-    else if (hours >= 22 && hours < 23) {
-        target = new Date(ist);
-        const nextSlot = Math.ceil((minutes + 1) / 10) * 10;
-        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
-        else target.setHours(hours + 1, 0, 0, 0);
-        slotDuration = 10 * 60;
-    } 
-    else {
-        isBreak = true;
+    // Check karo agla game kab hai
+    let nextGameMins = scheduleMins.find(m => m * 60 > currentSecs);
+    let isTomorrow = false;
+
+    if (!nextGameMins) {
+        nextGameMins = scheduleMins[0]; // Raat 10:50 ke baad direct agli subah 10 AM wala uthayega
+        isTomorrow = true;
     }
+
+    const nextGameSecs = nextGameMins * 60 + (isTomorrow ? 24 * 3600 : 0);
+    const diffSecs = nextGameSecs - currentSecs;
+
+    // Slot ka time (Bonus ke liye 10 mins, baaki ke liye 15 mins)
+    const isBonus = nextGameMins >= 1320 && nextGameMins <= 1370;
+    const slotDurationSecs = isBonus ? 10 * 60 : 15 * 60;
+
+    // Agar agli game me slot duration se zyada time bacha hai, matlab ye pakka BREAK hai!
+    const isBreak = diffSecs > slotDurationSecs;
 
     const timer = document.getElementById("timer");
     const timerRing = document.getElementById("timerRing");
@@ -2322,23 +2076,32 @@ function updateTimer() {
         if (timerRing) timerRing.style.setProperty('--progress', '100%');
         if (timerArea) timerArea.classList.remove("warning");
         if (timerLabel) timerLabel.style.visibility = "hidden";
-        if (timerNote) timerNote.textContent = currentLang === "hi" ? "अगला गेम जल्द शुरू होगा" : "Next game starts soon";
+
+        // Break ke waqt neeche agle game ka time dikhane ke liye
+        let displayHour = Math.floor(nextGameMins / 60);
+        let displayMin = nextGameMins % 60;
+        let ampm = displayHour >= 12 ? 'PM' : 'AM';
+        displayHour = displayHour % 12 || 12;
+        let timeStr = `${displayHour}:${displayMin.toString().padStart(2, '0')} ${ampm}`;
+
+        if (timerNote) {
+            timerNote.textContent = currentLang === "hi" ? `अगला रिजल्ट ${timeStr} पर` : `Next result at ${timeStr}`;
+        }
     } else {
-        const diff = Math.max(0, Math.floor((target - ist) / 1000));
-        const mins = Math.floor(diff / 60);
-        const secs = diff % 60;
+        const mins = Math.floor(diffSecs / 60);
+        const secs = diffSecs % 60;
 
         if (timer) {
             timer.textContent = String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
         }
         
-        let progress = (diff / slotDuration) * 100;
+        let progress = (diffSecs / slotDurationSecs) * 100;
         if (progress < 0) progress = 0;
         if (progress > 100) progress = 100;
         if (timerRing) timerRing.style.setProperty('--progress', `${progress}%`);
 
         if (timerArea) {
-            if (diff <= 60) timerArea.classList.add("warning");
+            if (diffSecs <= 60) timerArea.classList.add("warning");
             else timerArea.classList.remove("warning");
         }
 
@@ -2384,8 +2147,7 @@ import {
     getFirestore,
     collection,
     onSnapshot,
-    doc,
-    getDoc
+    doc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -2405,7 +2167,6 @@ const db = getFirestore(app);
 // ==========================================
 const noticeRef = doc(db, "settings", "notice");
 
-// Pehle try karte hain onSnapshot se (Live update)
 try {
     onSnapshot(noticeRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -2420,23 +2181,21 @@ try {
                 }
             }
         } else {
-             // Agar document abhi nahi mila, toh default dikhao
              const track = document.getElementById("noticeTrack");
                 if (track) {
                     track.innerHTML = `
-                        <div class="notice-item">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
-                        <div class="notice-item" aria-hidden="true">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
+                        <div class="notice-item">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
+                        <div class="notice-item" aria-hidden="true">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
                     `;
                 }
         }
     }, (error) => {
         console.error("Notice Snapshot Error:", error);
-        // Agar error aaye (jaise rules block karein), tab bhi default message dikhe, "Loading..." na atke.
         const track = document.getElementById("noticeTrack");
         if (track) {
              track.innerHTML = `
-                <div class="notice-item">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
-                <div class="notice-item" aria-hidden="true">Big Win Today | WhatsApp only : 9665057678 | Keep Playing</div>
+                <div class="notice-item">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
+                <div class="notice-item" aria-hidden="true">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
             `;
         }
     });
@@ -2553,5 +2312,6 @@ onSnapshot(gamesRef, (snapshot) => {
 setInterval(renderReleasedResults, 1000);
       
 </script>
+
 </body>
 </html>
