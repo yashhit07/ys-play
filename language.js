@@ -20,9 +20,9 @@ const translations = {
         "old-desc": "View charts and numbers opened on previous game days.",
         "old-highlight": "Last 5 completed days' charts available here",
         "how-title": "How To Play",
-        "how-sub": "A simple guide to understand YS PLAY, numbers, charts and virtual game points.",
+        "how-sub": "A simple guide to understand NASEEB PLAY, numbers, charts and virtual game points.",
         "how-sec1": "Getting Started",
-        "how-sec1-p": "New to YS PLAY? No problem. Follow the steps below to understand the basic process, check the latest chart and keep track of your virtual game activity.",
+        "how-sec1-p": "New to NASEEB PLAY? No problem. Follow the steps below to understand the basic process, check the latest chart and keep track of your virtual game activity.",
         "how-sec2": "How It Works",
         "step1-t": "Contact Us",
         "step1-p": "Message us through WhatsApp or Telegram to get started and receive the required information.",
@@ -71,7 +71,7 @@ const translations = {
         "nav-home": "होम",
         "nav-charts": "पुराने चार्ट",
         "nav-how": "कैसे खेलें",
-        "hero-title": "YS PLAY",
+        "hero-title": "NASEEB PLAY",
         "hero-sub": "आपके नंबर. आपके चार्ट. आपका खेल.",
         "timer-label": "अगला अपडेट",
         "timer-note": "अपने आप अपडेट होता है",
@@ -88,9 +88,9 @@ const translations = {
         "old-desc": "पिछले गेम के दिनों में खोले गए चार्ट और नंबर देखें।",
         "old-highlight": "पिछले 5 पूर्ण दिनों के चार्ट यहां उपलब्ध हैं",
         "how-title": "कैसे खेलें",
-        "how-sub": "YS PLAY, नंबर, चार्ट और वर्चुअल गेम पॉइंट्स को समझने के लिए एक आसान गाइड।",
+        "how-sub": "NASEEB PLAY, नंबर, चार्ट और वर्चुअल गेम पॉइंट्स को समझने के लिए एक आसान गाइड।",
         "how-sec1": "शुरुआत कैसे करें",
-        "how-sec1-p": "YS PLAY पर नए हैं? कोई बात नहीं। बेसिक प्रोसेस समझने के लिए नीचे दिए गए स्टेप्स फॉलो करें।",
+        "how-sec1-p": "NASEEB PLAY पर नए हैं? कोई बात नहीं। बेसिक प्रोसेस समझने के लिए नीचे दिए गए स्टेप्स फॉलो करें।",
         "how-sec2": "यह कैसे काम करता है",
         "step1-t": "संपर्क करें",
         "step1-p": "शुरू करने के लिए हमें WhatsApp या Telegram पर मैसेज करें।",
@@ -138,7 +138,7 @@ const translations = {
 };
 
 function setLanguage(lang) {
-    localStorage.setItem("ysplay_lang", lang);
+    localStorage.setItem("naseeb_lang", lang);
     
     const elements = document.querySelectorAll("[data-lang]");
     elements.forEach(el => {
@@ -159,13 +159,13 @@ function setLanguage(lang) {
 }
 
 function toggleLanguage() {
-    let currentLang = localStorage.getItem("ysplay_lang") || "en";
+    let currentLang = localStorage.getItem("naseeb_lang") || "en";
     let newLang = currentLang === "en" ? "hi" : "en";
     setLanguage(newLang);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    let savedLang = localStorage.getItem("ysplay_lang") || "en";
+    let savedLang = localStorage.getItem("naseeb_lang") || "en";
     setLanguage(savedLang);
 
     const langBtns = document.querySelectorAll(".language-toggle");
