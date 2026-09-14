@@ -293,6 +293,38 @@ body {
     }
 }
 
+/* =====================================================
+   CONTACT BUTTONS
+===================================================== */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+.contact-btn {
+    flex: 1;
+    max-width: 140px;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    background: linear-gradient(135deg, rgba(105,87,255,0.45), rgba(75,120,255,0.20));
+    border: 1px solid rgba(124,108,255,0.25);
+    transition: 0.25s ease;
+}
+.contact-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(145,125,255,0.50);
+    box-shadow: 0 8px 22px rgba(82,75,255,0.15);
+}
+
 
 /* =====================================================
    MAIN
@@ -870,6 +902,13 @@ body {
                     <div class="number-box" id="latest3">—</div>
                 </div>
             </div>
+            
+            <!-- CONTACT BUTTONS -->
+            <div class="contact-buttons">
+                <a href="https://wa.me/919665057678" target="_blank" class="contact-btn">WHATSAPP</a>
+                <a href="https://t.me/YOUR_TELEGRAM_LINK" target="_blank" class="contact-btn">TELEGRAM</a>
+            </div>
+
         </div>
     </section>
 
