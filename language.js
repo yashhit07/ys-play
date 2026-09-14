@@ -3,7 +3,7 @@ const translations = {
         "nav-home": "HOME",
         "nav-charts": "OLD CHARTS",
         "nav-how": "HOW TO PLAY",
-        "hero-title": "YS PLAY",
+        "hero-title": "NASEEB PLAY",
         "hero-sub": "Your numbers. Your charts. Your game.",
         "timer-label": "Next Update In",
         "timer-note": "Updates automatically",
