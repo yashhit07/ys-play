@@ -2545,9 +2545,9 @@ English | हिंदी
     <div class="footer-links">
 
 
-        <a href="index.html">HOME</a>
-<a href="old-charts.html">OLD CHARTS</a>
-<a href="how-to-play.html">HOW TO PLAY</a>
+        <a href="index.html" data-lang="nav-home">HOME</a>
+<a href="old-charts.html" data-lang="nav-charts">OLD CHARTS</a>
+<a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
 
 
     </div>
@@ -2566,158 +2566,109 @@ English | हिंदी
 <script src="language.js"></script>
 <script>
 
-
 /* =====================================================
-   15 MINUTE TIMER
+   15 MINUTE TIMER & SCHEDULE
 ===================================================== */
 
 function updateTimer() {
-
     const now = new Date();
-
-    const ist = new Date(
-        now.toLocaleString("en-US", {
-            timeZone: "Asia/Kolkata"
-        })
-    );
-
+    const ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
     const hours = ist.getHours();
     const minutes = ist.getMinutes();
-    const seconds = ist.getSeconds();
 
     let target;
     let isBreak = false;
+    let slotDuration = 15 * 60; // 15 minutes by default
 
     // 10:00 AM - 1:00 PM
     if (hours >= 10 && hours < 13) {
-
         target = new Date(ist);
-
-        const nextSlot =
-            Math.ceil((minutes + 1) / 15) * 15;
-
-        if (nextSlot < 60) {
-            target.setMinutes(nextSlot, 0, 0);
-        } else {
-            target.setHours(hours + 1, 0, 0, 0);
-        }
-
+        const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
+        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
+        else target.setHours(hours + 1, 0, 0, 0);
+        slotDuration = 15 * 60;
+    } 
     // 1:00 PM - 2:00 PM BREAK
-    } else if (hours >= 13 && hours < 14) {
-
+    else if (hours >= 13 && hours < 14) {
         isBreak = true;
-
-        target = new Date(ist);
-        target.setHours(14, 0, 0, 0);
-
+    } 
     // 2:00 PM - 5:00 PM
-    } else if (hours >= 14 && hours < 17) {
-
+    else if (hours >= 14 && hours < 17) {
         target = new Date(ist);
-
-        const nextSlot =
-            Math.ceil((minutes + 1) / 15) * 15;
-
-        if (nextSlot < 60) {
-            target.setMinutes(nextSlot, 0, 0);
-        } else {
-            target.setHours(hours + 1, 0, 0, 0);
-        }
-
+        const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
+        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
+        else target.setHours(hours + 1, 0, 0, 0);
+        slotDuration = 15 * 60;
+    } 
     // 5:00 PM - 6:00 PM BREAK
-    } else if (hours >= 17 && hours < 18) {
-
+    else if (hours >= 17 && hours < 18) {
         isBreak = true;
-
-        target = new Date(ist);
-        target.setHours(18, 0, 0, 0);
-
+    } 
     // 6:00 PM - 9:00 PM
-    } else if (hours >= 18 && hours < 21) {
-
+    else if (hours >= 18 && hours < 21) {
         target = new Date(ist);
-
-        const nextSlot =
-            Math.ceil((minutes + 1) / 15) * 15;
-
-        if (nextSlot < 60) {
-            target.setMinutes(nextSlot, 0, 0);
-        } else {
-            target.setHours(hours + 1, 0, 0, 0);
-        }
-
+        const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
+        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
+        else target.setHours(hours + 1, 0, 0, 0);
+        slotDuration = 15 * 60;
+    } 
     // 9:00 PM - 10:00 PM BREAK
-    } else if (hours >= 21 && hours < 22) {
-
+    else if (hours >= 21 && hours < 22) {
         isBreak = true;
-
-        target = new Date(ist);
-        target.setHours(22, 0, 0, 0);
-
+    } 
     // 10:00 PM - 11:00 PM BONUS
-    } else if (hours >= 22 && hours < 23) {
-
+    else if (hours >= 22 && hours < 23) {
         target = new Date(ist);
-
-        const nextSlot =
-            Math.ceil((minutes + 1) / 10) * 10;
-
-        if (nextSlot < 60) {
-            target.setMinutes(nextSlot, 0, 0);
-        } else {
-            target.setHours(hours + 1, 0, 0, 0);
-        }
-
-    // BEFORE 10 AM / AFTER 11 PM
-    } else {
-
+        const nextSlot = Math.ceil((minutes + 1) / 10) * 10;
+        if (nextSlot < 60) target.setMinutes(nextSlot, 0, 0);
+        else target.setHours(hours + 1, 0, 0, 0);
+        slotDuration = 10 * 60;
+    } 
+    // OVERNIGHT BREAK (11 PM - 10 AM)
+    else {
         isBreak = true;
+    }
 
-        target = new Date(ist);
-        target.setHours(10, 0, 0, 0);
+    const timer = document.getElementById("timer");
+    const timerRing = document.getElementById("timerRing");
+    const timerArea = document.getElementById("timerArea");
+    const timerLabel = document.querySelector(".timer-label");
+    const timerNote = document.querySelector(".timer-note");
+    
+    let currentLang = localStorage.getItem("ysplay_lang") || "en";
 
-        if (hours >= 23) {
-            target.setDate(target.getDate() + 1);
+    if (isBreak) {
+        if (timer) timer.textContent = currentLang === "hi" ? "ब्रेक" : "BREAK";
+        if (timerRing) timerRing.style.setProperty('--progress', '100%');
+        if (timerArea) timerArea.classList.remove("warning");
+        if (timerLabel) timerLabel.style.visibility = "hidden";
+        if (timerNote) timerNote.textContent = currentLang === "hi" ? "अगला गेम जल्द शुरू होगा" : "Next game starts soon";
+    } else {
+        const diff = Math.max(0, Math.floor((target - ist) / 1000));
+        const mins = Math.floor(diff / 60);
+        const secs = diff % 60;
+
+        if (timer) {
+            timer.textContent = String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
         }
-    }
+        
+        let progress = (diff / slotDuration) * 100;
+        if (progress < 0) progress = 0;
+        if (progress > 100) progress = 100;
+        if (timerRing) timerRing.style.setProperty('--progress', `${progress}%`);
 
-    const diff =
-        Math.max(0, Math.floor((target - ist) / 1000));
-
-    const mins = Math.floor(diff / 60);
-    const secs = diff % 60;
-
-    const timer =
-        document.getElementById("timer");
-
-    if (timer) {
-
-        timer.textContent =
-            String(mins).padStart(2, "0") +
-            ":" +
-            String(secs).padStart(2, "0");
-
-    }
-
-    const timerArea =
-        document.getElementById("timerArea");
-
-    if (timerArea) {
-
-        if (diff <= 60) {
-            timerArea.classList.add("warning");
-        } else {
-            timerArea.classList.remove("warning");
+        if (timerArea) {
+            if (diff <= 60) timerArea.classList.add("warning");
+            else timerArea.classList.remove("warning");
         }
 
+        if (timerLabel) timerLabel.style.visibility = "visible";
+        if (timerNote) timerNote.textContent = currentLang === "hi" ? "अपने आप अपडेट होता है" : "Updates automatically";
     }
-
 }
 
 updateTimer();
-
 setInterval(updateTimer, 1000);
-
 
 
 /* =====================================================
@@ -2726,73 +2677,30 @@ setInterval(updateTimer, 1000);
 
 let players = 1487;
 
-
 function updatePlayers() {
 
-
     /* Random small movement */
-
-    let change =
-        Math.floor(
-            Math.random() * 9
-        ) - 4;
-
-
+    let change = Math.floor(Math.random() * 9) - 4;
     players += change;
 
-
-
     /* Minimum */
-
-    if (players < 1000) {
-
-        players = 1000;
-
-    }
-
+    if (players < 1000) players = 1000;
 
     /* Maximum */
+    if (players > 2000) players = 2000;   
 
-    if (players > 2000) {
-
-        players = 2000;   
-
-    }
-
-
-
-    const element =
-        document.getElementById("players");
-
+    const element = document.getElementById("players");
 
     /* Small animation */
-
-    element.style.transform =
-        "scale(1.05)";
-
-
-    element.textContent =
-        players;
-
-
+    element.style.transform = "scale(1.05)";
+    element.textContent = players;
 
     setTimeout(function() {
-
-        element.style.transform =
-            "scale(1)";
-
+        element.style.transform = "scale(1)";
     }, 180);
-
 }
 
-
-/* Update every 2.5 seconds */
-
-setInterval(
-    updatePlayers,
-    2500
-);
-
+setInterval(updatePlayers, 2500);
 
 </script>
 
