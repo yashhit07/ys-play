@@ -1699,24 +1699,10 @@ English | हिंदी
 
 <div class="notice-ticker" aria-label="Important notice">
 
-    <div class="notice-track">
-
-        <div class="notice-item">
-            Big Win Today
-            <span class="notice-separator">|</span>
-            WhatsApp only : 9665057678
-            <span class="notice-separator">|</span>
-            Keep Playing
-        </div>
-
-        <div class="notice-item" aria-hidden="true">
-            Big Win Today
-            <span class="notice-separator">|</span>
-            WhatsApp only : 9665057678
-            <span class="notice-separator">|</span>
-            Keep Playing
-        </div>
-
+    <div class="notice-track" id="noticeTrack">
+        <!-- Text from Firebase will appear here -->
+        <div class="notice-item">Loading notice...</div>
+        <div class="notice-item" aria-hidden="true">Loading notice...</div>
     </div>
 
 </div>
@@ -1797,7 +1783,7 @@ English | हिंदी
 
 
             <!-- =========================================
-                 LATEST NUMBERS
+                 LATEST NUMBERS (DASHES FOR NO FLASHING)
             ========================================= -->
 
             <div class="numbers-heading" data-lang="latest-head">
@@ -1809,27 +1795,17 @@ English | हिंदी
             <div id="latestNumbers">
             <div class="numbers">
 
-
                 <div class="number-box" id="latest1">
-
-                    -
-
+                    —
                 </div>
-
 
                 <div class="number-box" id="latest2">
-
-                    -
-
+                    —
                 </div>
-
 
                 <div class="number-box" id="latest3">
-
-                    -
-
+                    —
                 </div>
-
 
             </div>
 
@@ -1866,7 +1842,7 @@ English | हिंदी
 
 
     <!-- =================================================
-         TODAY'S CHART
+         TODAY'S CHART (DASHES IN 1ST ROW TOO)
     ================================================= -->
 
     <section class="section">
@@ -1924,10 +1900,6 @@ English | हिंदी
 
     <tbody id="todayChart">
 
-        <!--
-            10:00 AM result example
-            Jaise result open hoga, yaha numbers show honge.
-        -->
 
         <tr class="latest">
 
@@ -1938,551 +1910,269 @@ English | हिंदी
                 </span>
             </td>
 
-            <td>-</td>
+            <td>—</td>
 
-            <td>-</td>
+            <td>—</td>
 
-            <td>-</td>
+            <td>—</td>
 
         </tr>
 
 
         <tr>
-
             <td>10:15 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:30 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:45 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>11:00 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>11:15 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>11:30 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>11:45 AM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>12:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>12:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>12:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>12:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
 
         <!-- 2 PM SESSION -->
 
         <tr>
-
             <td>2:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>2:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>2:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>2:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>3:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>3:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>3:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>3:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>4:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>4:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>4:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>4:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
 
         <!-- 6 PM SESSION -->
 
         <tr>
-
             <td>6:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>6:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>6:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>6:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>7:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>7:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>7:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>7:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>8:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>8:15 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>8:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>8:45 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
 
         <!-- BONUS SESSION -->
 
         <tr>
-
             <td>10:00 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:10 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:20 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:30 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:40 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
-
-
         <tr>
-
             <td>10:50 PM</td>
-
             <td>—</td>
-
             <td>—</td>
-
             <td>—</td>
-
         </tr>
 
     </tbody>
@@ -2544,11 +2234,9 @@ English | हिंदी
 
     <div class="footer-links">
 
-
         <a href="index.html" data-lang="nav-home">HOME</a>
-<a href="old-charts.html" data-lang="nav-charts">OLD CHARTS</a>
-<a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
-
+        <a href="old-charts.html" data-lang="nav-charts">OLD CHARTS</a>
+        <a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
 
     </div>
 
@@ -2578,9 +2266,8 @@ function updateTimer() {
 
     let target;
     let isBreak = false;
-    let slotDuration = 15 * 60; // 15 minutes by default
+    let slotDuration = 15 * 60; 
 
-    // 10:00 AM - 1:00 PM
     if (hours >= 10 && hours < 13) {
         target = new Date(ist);
         const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
@@ -2588,11 +2275,9 @@ function updateTimer() {
         else target.setHours(hours + 1, 0, 0, 0);
         slotDuration = 15 * 60;
     } 
-    // 1:00 PM - 2:00 PM BREAK
     else if (hours >= 13 && hours < 14) {
         isBreak = true;
     } 
-    // 2:00 PM - 5:00 PM
     else if (hours >= 14 && hours < 17) {
         target = new Date(ist);
         const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
@@ -2600,11 +2285,9 @@ function updateTimer() {
         else target.setHours(hours + 1, 0, 0, 0);
         slotDuration = 15 * 60;
     } 
-    // 5:00 PM - 6:00 PM BREAK
     else if (hours >= 17 && hours < 18) {
         isBreak = true;
     } 
-    // 6:00 PM - 9:00 PM
     else if (hours >= 18 && hours < 21) {
         target = new Date(ist);
         const nextSlot = Math.ceil((minutes + 1) / 15) * 15;
@@ -2612,11 +2295,9 @@ function updateTimer() {
         else target.setHours(hours + 1, 0, 0, 0);
         slotDuration = 15 * 60;
     } 
-    // 9:00 PM - 10:00 PM BREAK
     else if (hours >= 21 && hours < 22) {
         isBreak = true;
     } 
-    // 10:00 PM - 11:00 PM BONUS
     else if (hours >= 22 && hours < 23) {
         target = new Date(ist);
         const nextSlot = Math.ceil((minutes + 1) / 10) * 10;
@@ -2624,7 +2305,6 @@ function updateTimer() {
         else target.setHours(hours + 1, 0, 0, 0);
         slotDuration = 10 * 60;
     } 
-    // OVERNIGHT BREAK (11 PM - 10 AM)
     else {
         isBreak = true;
     }
@@ -2678,23 +2358,14 @@ setInterval(updateTimer, 1000);
 let players = 1487;
 
 function updatePlayers() {
-
-    /* Random small movement */
     let change = Math.floor(Math.random() * 9) - 4;
     players += change;
-
-    /* Minimum */
     if (players < 1000) players = 1000;
-
-    /* Maximum */
     if (players > 2000) players = 2000;   
 
     const element = document.getElementById("players");
-
-    /* Small animation */
     element.style.transform = "scale(1.05)";
     element.textContent = players;
-
     setTimeout(function() {
         element.style.transform = "scale(1)";
     }, 180);
@@ -2704,247 +2375,157 @@ setInterval(updatePlayers, 2500);
 
 </script>
 
-   <script type="module">
-
+<script type="module">
+// ==========================================
+// 1. FIREBASE CONNECTION (NOTICE + RESULTS)
+// ==========================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
 import {
     getFirestore,
     collection,
-    onSnapshot
+    onSnapshot,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-
 const firebaseConfig = {
-
     apiKey: "AIzaSyDv6F9RNNa6XYYPXVumqKr77GSKW2d7Y6U",
-
     authDomain: "ys-play-fc93c.firebaseapp.com",
-
     projectId: "ys-play-fc93c",
-
     storageBucket: "ys-play-fc93c.firebasestorage.app",
-
     messagingSenderId: "931694240335",
-
     appId: "1:931694240335:web:433aa4fe02020066dfc03a"
-
 };
 
-
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
+// ==========================================
+// 2. LIVE NOTICE TICKER
+// ==========================================
+const noticeRef = doc(db, "settings", "notice");
+onSnapshot(noticeRef, (docSnap) => {
+    if (docSnap.exists()) {
+        const data = docSnap.data();
+        if (data.text) {
+            const track = document.getElementById("noticeTrack");
+            if (track) {
+                track.innerHTML = `
+                    <div class="notice-item">${data.text}</div>
+                    <div class="notice-item" aria-hidden="true">${data.text}</div>
+                `;
+            }
+        }
+    }
+});
 
+// ==========================================
+// 3. DAILY RESULTS LOGIC
+// ==========================================
 const today = new Intl.DateTimeFormat("en-CA", {
-
     timeZone: "Asia/Kolkata"
-
 }).format(new Date());
 
-
-const gamesRef = collection(
-
-    db,
-
-    "daily_results",
-
-    today,
-
-    "games"
-
-);
-
-
+const gamesRef = collection(db, "daily_results", today, "games");
 let todayGames = [];
 
 function getISTNow() {
     const now = new Date();
-
-    return new Date(
-        now.toLocaleString("en-US", {
-            timeZone: "Asia/Kolkata"
-        })
-    );
+    return new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
 }
 
 function timeToMinutes(timeString) {
     const parts = timeString.trim().split(" ");
     const time = parts[0];
     const period = parts[1];
-
     let [hours, minutes] = time.split(":").map(Number);
-
-    if (period === "PM" && hours !== 12) {
-        hours += 12;
-    }
-
-    if (period === "AM" && hours === 12) {
-        hours = 0;
-    }
-
+    if (period === "PM" && hours !== 12) hours += 12;
+    if (period === "AM" && hours === 12) hours = 0;
     return hours * 60 + minutes;
 }
 
 function renderReleasedResults() {
-
     const ist = getISTNow();
+    const currentMinutes = ist.getHours() * 60 + ist.getMinutes();
+    const rows = document.querySelectorAll("#todayChart tr");
 
-    const currentMinutes =
-        ist.getHours() * 60 + ist.getMinutes();
-
-    const rows =
-        document.querySelectorAll("#todayChart tr");
-
-    // Pehle saare results hide rakho
     rows.forEach(row => {
-
         const cells = row.querySelectorAll("td");
-
         if (cells.length >= 4) {
             cells[1].textContent = "—";
             cells[2].textContent = "—";
             cells[3].textContent = "—";
         }
-
     });
 
     let releasedGames = [];
-    let latestRow = null;
 
     todayGames.forEach(game => {
-
         if (!game.time) return;
+        const gameMinutes = timeToMinutes(game.time);
 
-        const gameMinutes =
-            timeToMinutes(game.time);
-
-        // Sirf scheduled time ke baad result dikhega
         if (currentMinutes >= gameMinutes) {
-
             releasedGames.push(game);
-
             rows.forEach(row => {
-
-                const cells =
-                    row.querySelectorAll("td");
-
+                const cells = row.querySelectorAll("td");
                 if (cells.length < 4) return;
-
-                const rowTime =
-                    cells[0].textContent
-                        .replace("NEW", "")
-                        .trim();
+                const rowTime = cells[0].textContent.replace("NEW", "").trim();
 
                 if (rowTime === game.time) {
-
-                    cells[1].textContent =
-                        game.result1 || "—";
-
-                    cells[2].textContent =
-                        game.result2 || "—";
-
-                    cells[3].textContent =
-                        game.result3 || "—";
-
+                    cells[1].textContent = game.result1 || "—";
+                    cells[2].textContent = game.result2 || "—";
+                    cells[3].textContent = game.result3 || "—";
                 }
-
             });
-
         }
-
     });
 
-    // Latest Numbers = latest released game
-    releasedGames.sort((a, b) =>
-        timeToMinutes(a.time) -
-        timeToMinutes(b.time)
-    );
-
-    const latestGame =
-        releasedGames[releasedGames.length - 1];
+    releasedGames.sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+    const latestGame = releasedGames[releasedGames.length - 1];
 
     if (latestGame) {
        rows.forEach(row => {
-    row.classList.remove("latest");
+            row.classList.remove("latest");
+            const badge = row.querySelector(".latest-badge");
+            if (badge) badge.remove();
+        });
 
-    const badge = row.querySelector(".latest-badge");
-    if (badge) {
-        badge.remove();
-    }
-});
+        rows.forEach(row => {
+            const cells = row.querySelectorAll("td");
+            if (cells.length < 4) return;
+            const rowTime = cells[0].textContent.trim();
 
-rows.forEach(row => {
-    const cells = row.querySelectorAll("td");
+            if (rowTime === latestGame.time) {
+                row.classList.add("latest");
+                const badge = document.createElement("span");
+                badge.className = "latest-badge";
+                badge.textContent = "NEW";
+                cells[0].appendChild(badge);
+            }
+        });
 
-    if (cells.length < 4) return;
-
-    const rowTime = cells[0].textContent.trim();
-
-    if (rowTime === latestGame.time) {
-        row.classList.add("latest");
-
-        const badge = document.createElement("span");
-        badge.className = "latest-badge";
-        badge.textContent = "NEW";
-
-        cells[0].appendChild(badge);
-    }
-});
-
-        document.getElementById("latest1").textContent =
-            latestGame.result1 || "—";
-
-        document.getElementById("latest2").textContent =
-            latestGame.result2 || "—";
-
-        document.getElementById("latest3").textContent =
-            latestGame.result3 || "—";
-
+        document.getElementById("latest1").textContent = latestGame.result1 || "—";
+        document.getElementById("latest2").textContent = latestGame.result2 || "—";
+        document.getElementById("latest3").textContent = latestGame.result3 || "—";
     } else {
-
         document.getElementById("latest1").textContent = "—";
         document.getElementById("latest2").textContent = "—";
         document.getElementById("latest3").textContent = "—";
-
     }
-
 }
 
 onSnapshot(gamesRef, (snapshot) => {
-
-    console.log("YS PLAY Firebase connected!");
-    console.log("Today's games:", snapshot.size);
-
     todayGames = [];
-
     snapshot.forEach((doc) => {
-
-        const data = doc.data();
-
-        console.log(doc.id, data);
-
-        todayGames.push(data);
-
+        todayGames.push(doc.data());
     });
-
-    // Firebase se data aate hi check
     renderReleasedResults();
-
 }, (error) => {
-
     console.error("Firebase error:", error);
-
 });
 
-// Har second check karega.
-// Isse scheduled time par result automatically reveal hoga.
 setInterval(renderReleasedResults, 1000);
       
 </script>
 
-
 </body>
-
 </html>
