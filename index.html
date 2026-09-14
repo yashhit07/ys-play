@@ -10,15 +10,16 @@
 <title>YS PLAY</title>
 
 <!-- =====================================================
-     PWA (APP) & WHATSAPP PREVIEW TAGS (NEW)
+     PWA (APP) & WHATSAPP PREVIEW TAGS (FIXED)
 ===================================================== -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#070912">
-<link rel="apple-touch-icon" href="logo.png">
 
+<meta property="og:site_name" content="YS PLAY">
 <meta property="og:title" content="YS PLAY - Live Result">
 <meta property="og:description" content="Check latest numbers and live charts directly on YS PLAY. 45 Games Daily!">
-<meta property="og:image" content="https://ys-play.gzone.workers.dev/logo.png">
+<!-- Maine yahan ek auto-generated temporary image daal di hai taaki WhatsApp preview load ho jaye -->
+<meta property="og:image" content="https://placehold.co/512x512/7657ff/ffffff.png?text=YS+PLAY">
 <meta property="og:url" content="https://ys-play.gzone.workers.dev/">
 <meta property="og:type" content="website">
 <!-- ===================================================== -->
@@ -41,23 +42,14 @@
 ===================================================== */
 
 :root {
-
     --bg: #070912;
-
     --card: rgba(18, 22, 35, 0.82);
-
     --border: rgba(255,255,255,0.09);
-
     --text: #ffffff;
-
     --muted: #8c94aa;
-
     --purple: #7657ff;
-
     --purple-light: #9279ff;
-
     --blue: #4e8cff;
-
     --green: #40e58b;
 }
 
@@ -67,35 +59,14 @@
 ===================================================== */
 
 body {
-
     font-family: Arial, Helvetica, sans-serif;
-
     background:
-
-        radial-gradient(
-            circle at 15% 5%,
-            rgba(62,105,255,0.20),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 8%,
-            rgba(157,66,255,0.20),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(42,88,255,0.08),
-            transparent 35%
-        ),
-
+        radial-gradient(circle at 15% 5%, rgba(62,105,255,0.20), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(157,66,255,0.20), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(42,88,255,0.08), transparent 35%),
         var(--bg);
-
     color: var(--text);
-
     min-height: 100vh;
-
     overflow-x: hidden;
 }
 
@@ -105,94 +76,43 @@ body {
 ===================================================== */
 
 .header {
-
     height: 68px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     position: sticky;
-
     top: 0;
-
     z-index: 100;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7,9,18,0.95),
-            rgba(7,9,18,0.78)
-        );
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.07);
-
+    background: linear-gradient(180deg, rgba(7,9,18,0.95), rgba(7,9,18,0.78));
+    border-bottom: 1px solid rgba(255,255,255,0.07);
     backdrop-filter: blur(18px);
-
     -webkit-backdrop-filter: blur(18px);
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
-
 
 .header::after {
-
     content: "";
-
     position: absolute;
-
     left: 50%;
-
     bottom: -1px;
-
     transform: translateX(-50%);
-
     width: 110px;
-
     height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(118,87,255,0.9),
-            transparent
-        );
-
-    box-shadow:
-        0 0 15px rgba(118,87,255,0.7);
+    background: linear-gradient(90deg, transparent, rgba(118,87,255,0.9), transparent);
+    box-shadow: 0 0 15px rgba(118,87,255,0.7);
 }
 
-
 .brand {
-
     font-size: 22px;
-
     font-weight: 800;
-
     letter-spacing: 1.2px;
 }
 
-
 .brand span {
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #8b7cff,
-            #67a4ff
-        );
-
+    background: linear-gradient(90deg, #ffffff, #8b7cff, #67a4ff);
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
-
 
 .language-toggle {
     position: absolute;
@@ -211,7 +131,6 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-
 .language-toggle:hover {
     background: rgba(118,87,255,0.25);
     color: #ffffff;
@@ -226,106 +145,47 @@ body {
 ===================================================== */
 
 .logo-area {
-
     display: flex;
-
     justify-content: center;
-
     padding: 24px 20px 18px;
-
     position: relative;
 }
 
-
 .logo-area::before {
-
     content: "";
-
     position: absolute;
-
     top: 10px;
-
     left: 50%;
-
     transform: translateX(-50%);
-
     width: 150px;
-
     height: 110px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(118,87,255,0.28),
-            transparent 70%
-        );
-
+    background: radial-gradient(circle, rgba(118,87,255,0.28), transparent 70%);
     filter: blur(18px);
-
     pointer-events: none;
 }
 
-
 .logo-placeholder {
-
     width: 78px;
-
     height: 78px;
-
     border-radius: 24px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     position: relative;
-
     z-index: 2;
-
     font-size: 14px;
-
     font-weight: 800;
-
     line-height: 1.1;
-
     text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5968ff,
-            #9b4dff
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.17);
-
-    box-shadow:
-
-        0 12px 35px rgba(105,78,255,0.38),
-
-        0 0 30px rgba(105,78,255,0.14),
-
-        inset 0 1px 1px rgba(255,255,255,0.3);
-
-    animation:
-        logoFloat 4s ease-in-out infinite;
+    background: linear-gradient(135deg, #5968ff, #9b4dff);
+    border: 1px solid rgba(255,255,255,0.17);
+    box-shadow: 0 12px 35px rgba(105,78,255,0.38), 0 0 30px rgba(105,78,255,0.14), inset 0 1px 1px rgba(255,255,255,0.3);
+    animation: logoFloat 4s ease-in-out infinite;
 }
 
-
 @keyframes logoFloat {
-
-    0%,100% {
-
-        transform: translateY(0);
-    }
-
-    50% {
-
-        transform: translateY(-4px);
-    }
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
 
 
@@ -334,103 +194,47 @@ body {
 ===================================================== */
 
 .nav {
-
     width: calc(100% - 24px);
-
     max-width: 900px;
-
     margin: 0 auto 20px;
-
     padding: 5px;
-
     display: flex;
-
     justify-content: center;
-
     gap: 5px;
-
-    border:
-        1px solid rgba(255,255,255,0.09);
-
+    border: 1px solid rgba(255,255,255,0.09);
     border-radius: 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.055),
-            rgba(255,255,255,0.025)
-        );
-
+    background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
     backdrop-filter: blur(15px);
-
     -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.14);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.14);
 }
-
 
 .nav a {
-
     flex: 1;
-
     max-width: 180px;
-
     padding: 11px 10px;
-
     text-align: center;
-
     color: #9ca4b8;
-
     text-decoration: none;
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 0.2px;
-
     border-radius: 11px;
-
-    transition:
-        0.25s ease;
+    transition: 0.25s ease;
 }
-
 
 .nav a:hover {
-
     color: #ffffff;
-
-    background:
-        rgba(255,255,255,0.06);
-
-    transform:
-        translateY(-1px);
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-1px);
 }
-
 
 .nav a.active {
-
     color: #ffffff;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(105,87,255,0.45),
-            rgba(75,120,255,0.22)
-        );
-
-    border:
-        1px solid rgba(124,108,255,0.20);
-
-    box-shadow:
-
-        inset 0 1px rgba(255,255,255,0.11),
-
-        0 4px 18px rgba(65,70,255,0.20);
+    background: linear-gradient(135deg, rgba(105,87,255,0.45), rgba(75,120,255,0.22));
+    border: 1px solid rgba(124,108,255,0.20);
+    box-shadow: inset 0 1px rgba(255,255,255,0.11), 0 4px 18px rgba(65,70,255,0.20);
 }
-
-
 
 
 /* =====================================================
@@ -438,97 +242,54 @@ body {
 ===================================================== */
 
 .notice-ticker {
-
     width: calc(100% - 24px);
-
     max-width: 900px;
-
     margin: -4px auto 18px;
-
     overflow: hidden;
-
     border: 1px solid rgba(118,87,255,0.20);
-
     border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(118,87,255,0.12),
-            rgba(78,140,255,0.06)
-        );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,0.05),
-        0 8px 24px rgba(0,0,0,0.12);
+    background: linear-gradient(135deg, rgba(118,87,255,0.12), rgba(78,140,255,0.06));
+    box-shadow: inset 0 1px rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .notice-track {
-
     width: max-content;
-
     display: flex;
-
     align-items: center;
-
     white-space: nowrap;
-
     animation: noticeScroll 16s linear infinite;
-
     will-change: transform;
 }
 
 .notice-item {
-
     flex-shrink: 0;
-
     padding: 11px 28px;
-
     color: #d9dcff;
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 0.3px;
-    
     white-space: pre; 
 }
 
 @keyframes noticeScroll {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 .notice-ticker:hover .notice-track {
-
     animation-play-state: paused;
 }
 
 @media(max-width:600px) {
-
     .notice-ticker {
-
         width: calc(100% - 16px);
-
         margin: -2px auto 15px;
     }
-
     .notice-track {
-
         animation-duration: 14s;
     }
-
     .notice-item {
-
         padding: 10px 20px;
-
         font-size: 10px;
     }
 }
@@ -539,1035 +300,438 @@ body {
 ===================================================== */
 
 .container {
-
     width: calc(100% - 24px);
-
     max-width: 900px;
-
     margin: auto;
 }
-
 
 /* =====================================================
    HERO
 ===================================================== */
 
 .hero {
-
     position: relative;
-
     overflow: hidden;
-
     padding: 32px 18px 30px;
-
     border-radius: 25px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.085),
-            rgba(255,255,255,0.025)
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.09);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.22);
-
+    background: linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.025));
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.22);
     text-align: center;
 }
 
-
 .hero::before {
-
     content: "";
-
     position: absolute;
-
     width: 230px;
-
     height: 230px;
-
     left: -90px;
-
     top: -100px;
-
     background: #5268ff;
-
     filter: blur(100px);
-
     opacity: 0.14;
 }
 
-
 .hero::after {
-
     content: "";
-
     position: absolute;
-
     width: 230px;
-
     height: 230px;
-
     right: -100px;
-
     bottom: -130px;
-
     background: #9d4cff;
-
     filter: blur(100px);
-
     opacity: 0.12;
 }
 
-
 .hero-content {
-
     position: relative;
-
     z-index: 2;
 }
 
-
 .hero h1[data-lang="hero-title"] {
-
     font-size: 30px;
-
     font-weight: 800;
-
     letter-spacing: -0.5px;
 }
 
-
 .hero-subtitle {
-
     color: var(--muted);
-
     font-size: 12px;
-
     margin-top: 8px;
 }
-
 
 /* =====================================================
    PREMIUM TIMER
 ===================================================== */
 
 .timer-area {
-
     margin: 27px auto 0;
-
     width: 220px;
-
     height: 220px;
-
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
-
-/* Outer glow */
-
 .timer-area::before {
-
     content: "";
-
     position: absolute;
-
     width: 180px;
-
     height: 180px;
-
     border-radius: 50%;
-
-    background:
-        rgba(118,87,255,0.10);
-
+    background: rgba(118,87,255,0.10);
     filter: blur(28px);
-
     opacity: 0.8;
-
-    transition:
-        0.5s ease;
+    transition: 0.5s ease;
 }
-
-
-/* Progress ring */
 
 .timer-ring {
-
     position: absolute;
-
     width: 220px;
-
     height: 220px;
-
     border-radius: 50%;
-
-    background:
-        conic-gradient(
-            var(--purple-light)
-            var(--progress, 100%),
-
-            rgba(255,255,255,0.055)
-            var(--progress, 100%)
-        );
-
-    box-shadow:
-
-        0 0 25px rgba(112,85,255,0.22),
-
-        0 0 55px rgba(112,85,255,0.08);
-
-    transition:
-        background 0.2s linear;
+    background: conic-gradient(var(--purple-light) var(--progress, 100%), rgba(255,255,255,0.055) var(--progress, 100%));
+    box-shadow: 0 0 25px rgba(112,85,255,0.22), 0 0 55px rgba(112,85,255,0.08);
+    transition: background 0.2s linear;
 }
-
-
-/* Inner circle */
 
 .timer-ring::after {
-
     content: "";
-
     position: absolute;
-
     inset: 8px;
-
     border-radius: 50%;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 35%,
-            #141927,
-            #0b0f18 70%
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.07);
-
-    box-shadow:
-        inset 0 0 25px rgba(0,0,0,0.45);
+    background: radial-gradient(circle at 50% 35%, #141927, #0b0f18 70%);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.45);
 }
 
-
-/* Timer content */
-
 .timer-inner {
-
     position: relative;
-
     z-index: 2;
-
     text-align: center;
 }
 
-
 .timer-label {
-
     color: #858da2;
-
     font-size: 10px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 }
-
 
 .timer {
-
     margin-top: 7px;
-
     font-size: 42px;
-
     font-weight: 800;
-
     letter-spacing: 2px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #aebaff
-        );
-
+    background: linear-gradient(90deg, #ffffff, #aebaff);
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
-
-    text-shadow:
-        0 0 20px rgba(145,145,255,0.12);
+    text-shadow: 0 0 20px rgba(145,145,255,0.12);
 }
 
-
 .timer-note {
-
     margin-top: 5px;
-
     color: #697187;
-
     font-size: 10px;
 }
 
-
-/* Last minute warning */
-
 .timer-area.warning::before {
-
     opacity: 1;
-
     transform: scale(1.08);
-
 }
-
 
 .timer-area.warning .timer-ring {
-
-    box-shadow:
-
-        0 0 30px rgba(118,87,255,0.35),
-
-        0 0 65px rgba(118,87,255,0.14);
+    box-shadow: 0 0 30px rgba(118,87,255,0.35), 0 0 65px rgba(118,87,255,0.14);
 }
-
 
 /* =====================================================
    LATEST NUMBERS
 ===================================================== */
 
 .numbers-heading {
-
     margin-top: 27px;
-
     color: #858da2;
-
     font-size: 10px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 }
 
-
 .numbers {
-
     display: flex;
-
     justify-content: center;
-
     gap: 10px;
-
     margin-top: 12px;
 }
 
-
 .number-box {
-
     width: 78px;
-
     height: 58px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     position: relative;
-
     overflow: hidden;
-
     border-radius: 15px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(118,87,255,0.20),
-            rgba(78,140,255,0.07)
-        );
-
-    border:
-        1px solid rgba(124,108,255,0.25);
-
+    background: linear-gradient(145deg, rgba(118,87,255,0.20), rgba(78,140,255,0.07));
+    border: 1px solid rgba(124,108,255,0.25);
     font-size: 22px;
-
     font-weight: 800;
-
-    box-shadow:
-
-        inset 0 1px rgba(255,255,255,0.07),
-
-        0 8px 20px rgba(30,25,80,0.15);
-
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+    box-shadow: inset 0 1px rgba(255,255,255,0.07), 0 8px 20px rgba(30,25,80,0.15);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-
-/* Number card shine */
-
 .number-box::before {
-
     content: "";
-
     position: absolute;
-
     width: 70px;
-
     height: 70px;
-
     top: -45px;
-
     left: -35px;
-
     border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.07);
-
+    background: rgba(255,255,255,0.07);
     filter: blur(12px);
 }
 
-
 .number-box:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(145,125,255,0.55);
-
-    box-shadow:
-
-        0 12px 28px rgba(82,75,255,0.20),
-
-        0 0 18px rgba(118,87,255,0.08);
+    transform: translateY(-4px);
+    border-color: rgba(145,125,255,0.55);
+    box-shadow: 0 12px 28px rgba(82,75,255,0.20), 0 0 18px rgba(118,87,255,0.08);
 }
-
 
 .number-box:active {
-
-    transform:
-        translateY(-1px)
-        scale(0.97);
+    transform: translateY(-1px) scale(0.97);
 }
-
 
 /* =====================================================
    GENERAL SECTION
 ===================================================== */
 
 .section {
-
     margin-top: 20px;
-
     padding: 20px;
-
     border-radius: 20px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.055),
-            rgba(255,255,255,0.025)
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.09);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.15);
+    background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.15);
 }
 
-
 .section-header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     margin-bottom: 15px;
 }
 
-
 .section-title {
-
     font-size: 16px;
-
     font-weight: 800;
 }
 
-
 .section-tag {
-
     padding: 5px 9px;
-
     border-radius: 8px;
-
     color: #9da8ff;
-
-    background:
-        rgba(105,87,255,0.10);
-
-    border:
-        1px solid rgba(124,108,255,0.10);
-
+    background: rgba(105,87,255,0.10);
+    border: 1px solid rgba(124,108,255,0.10);
     font-size: 9px;
-
     text-transform: uppercase;
-
     letter-spacing: 1px;
-
-    box-shadow:
-        0 0 12px rgba(105,87,255,0.05);
+    box-shadow: 0 0 12px rgba(105,87,255,0.05);
 }
-
 
 /* =====================================================
    PREMIUM CHART
 ===================================================== */
 
 .chart-wrapper {
-
     overflow-x: auto;
-
     border-radius: 14px;
-
-    border:
-        1px solid rgba(255,255,255,0.055);
-
-    background:
-        rgba(4,6,12,0.25);
+    border: 1px solid rgba(255,255,255,0.055);
+    background: rgba(4,6,12,0.25);
 }
 
-
 .chart {
-
     width: 100%;
-
     border-collapse: collapse;
-
     table-layout: fixed;
 }
 
-
 .chart th {
-
     padding: 12px 7px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            rgba(91,105,255,0.16),
-            rgba(120,72,255,0.10)
-        );
-
+    background: linear-gradient(90deg, rgba(91,105,255,0.16), rgba(120,72,255,0.10));
     color: #9ca9ff;
-
     font-size: 9px;
-
     text-transform: uppercase;
-
     letter-spacing: 0.7px;
-
     white-space: nowrap;
 }
 
-
 .chart td {
-
     padding: 14px 5px;
-
     text-align: center;
-
     color: #aab1c2;
-
     font-size: 11px;
-
-    border-top:
-        1px solid rgba(255,255,255,0.045);
+    border-top: 1px solid rgba(255,255,255,0.045);
 }
-
 
 .chart tbody tr {
-
-    transition:
-        background 0.2s ease;
+    transition: background 0.2s ease;
 }
-
 
 .chart tbody tr:hover {
-
-    background:
-        rgba(255,255,255,0.035);
+    background: rgba(255,255,255,0.035);
 }
 
-
 .chart td:not(:first-child) {
-
     color: #ffffff;
-
     font-weight: 800;
-
     font-size: 12px;
 }
 
-
 .chart tbody tr.latest {
-
-    background:
-
-        linear-gradient(
-            90deg,
-            rgba(99,87,255,0.13),
-            rgba(78,140,255,0.045)
-        );
+    background: linear-gradient(90deg, rgba(99,87,255,0.13), rgba(78,140,255,0.045));
 }
-
 
 .chart tbody tr.latest td:not(:first-child) {
-
     color: #ffffff;
-
-    text-shadow:
-        0 0 12px rgba(145,145,255,0.16);
+    text-shadow: 0 0 12px rgba(145,145,255,0.16);
 }
-
 
 .latest-badge {
-
     display: inline-block;
-
     margin-left: 4px;
-
     padding: 3px 5px;
-
     border-radius: 5px;
-
-    background:
-        rgba(64,229,139,0.11);
-
-    border:
-        1px solid rgba(64,229,139,0.10);
-
+    background: rgba(64,229,139,0.11);
+    border: 1px solid rgba(64,229,139,0.10);
     color: #55e89a;
-
     font-size: 7px;
-
     font-weight: 700;
-
     vertical-align: middle;
-
-    box-shadow:
-        0 0 10px rgba(64,229,139,0.05);
+    box-shadow: 0 0 10px rgba(64,229,139,0.05);
 }
-
 
 /* =====================================================
    LIVE PEOPLE
 ===================================================== */
 
 .people {
-
     text-align: center;
-
     padding: 24px 20px;
 }
 
-
 .live-status {
-
     display: inline-flex;
-
     align-items: center;
-
     gap: 7px;
-
     color: #858da2;
-
     font-size: 11px;
 }
 
-
 .live-dot {
-
     width: 7px;
-
     height: 7px;
-
     border-radius: 50%;
-
     background: var(--green);
-
-    box-shadow:
-        0 0 10px rgba(64,229,139,0.8);
-
-    animation:
-        livePulse 1.5s infinite;
+    box-shadow: 0 0 10px rgba(64,229,139,0.8);
+    animation: livePulse 1.5s infinite;
 }
-
 
 @keyframes livePulse {
-
-    0%,100% {
-
-        opacity: 1;
-
-        transform: scale(1);
-    }
-
-    50% {
-
-        opacity: 0.35;
-
-        transform: scale(0.65);
-    }
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.65); }
 }
-
 
 .players-number {
-
     margin-top: 8px;
-
     font-size: 42px;
-
     font-weight: 800;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #8ea4ff
-        );
-
+    background: linear-gradient(90deg, #ffffff, #8ea4ff);
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
-
-    transition:
-        transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
-
 
 .players-text {
-
     margin-top: 2px;
-
     color: #626b80;
-
     font-size: 10px;
 }
-
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 .footer {
-
     max-width: 900px;
-
     margin: 30px auto 0;
-
     padding: 25px 20px 30px;
-
-    border-top:
-        1px solid rgba(255,255,255,0.05);
-
+    border-top: 1px solid rgba(255,255,255,0.05);
     text-align: center;
 }
 
-
 .footer-links {
-
     display: flex;
-
     justify-content: center;
-
     gap: 22px;
-
     margin-bottom: 14px;
 }
 
-
 .footer-links a {
-
     color: #727b91;
-
     text-decoration: none;
-
     font-size: 10px;
-
-    transition:
-        0.2s ease;
+    transition: 0.2s ease;
 }
 
-
 .footer-links a:hover {
-
     color: #ffffff;
 }
 
-
 .copyright {
-
     color: #4f576a;
-
     font-size: 10px;
 }
 
-
 /* =====================================================
-   MOBILE
+   MOBILE & COMPACT SCHEDULE
 ===================================================== */
 
 @media(max-width:600px) {
-
-
-    .header {
-
-        height: 62px;
-    }
-
-
-    .brand {
-
-        font-size: 20px;
-    }
-
-
-    .language-toggle {
-        right: 12px;
-        padding: 6px 10px;
-        font-size: 9px;
-    }
-
-
-    .logo-area {
-
-        padding: 21px 20px 16px;
-    }
-
-
-    .logo-placeholder {
-
-        width: 74px;
-
-        height: 74px;
-
-        border-radius: 22px;
-
-        font-size: 13px;
-    }
-
-
-    .nav {
-
-        width: calc(100% - 16px);
-
-        margin-bottom: 16px;
-
-        padding: 5px;
-    }
-
-
-    .nav a {
-
-        padding: 11px 4px;
-
-        font-size: 10px;
-
-        letter-spacing: 0;
-    }
-
-
-    .container {
-
-        width: calc(100% - 16px);
-    }
-
-
-    .hero {
-
-        padding: 27px 12px 28px;
-
-        border-radius: 21px;
-    }
-
-
-    .hero h1 {
-
-        font-size: 25px;
-    }
-
-
-    .hero-subtitle {
-
-        font-size: 11px;
-    }
-
-
-    .timer-area {
-
-        width: 190px;
-
-        height: 190px;
-    }
-
-
-    .timer-ring {
-
-        width: 190px;
-
-        height: 190px;
-    }
-
-
-    .timer {
-
-        font-size: 36px;
-    }
-
-
-    .number-box {
-
-        width: 72px;
-
-        height: 55px;
-
-        font-size: 20px;
-    }
-
-
-    .section {
-
-        padding: 16px 12px;
-
-        border-radius: 18px;
-    }
-
-
-    .section-title {
-
-        font-size: 14px;
-    }
-
-
-    .chart th {
-
-        font-size: 8px;
-
-        padding: 11px 3px;
-
-        letter-spacing: 0.3px;
-    }
-
-
-    .chart td {
-
-        font-size: 10px;
-
-        padding: 13px 3px;
-    }
-
-
-    .chart td:not(:first-child) {
-
-        font-size: 11px;
-    }
-
-
-    .latest-badge {
-
-        font-size: 6px;
-
-        padding: 2px 4px;
-
-        margin-left: 2px;
-    }
-
-
-    .players-number {
-
-        font-size: 38px;
-    }
-
-
-    .footer-links {
-
-        gap: 15px;
-    }
-
+    .header { height: 62px; }
+    .brand { font-size: 20px; }
+    .language-toggle { right: 12px; padding: 6px 10px; font-size: 9px; }
+    .logo-area { padding: 21px 20px 16px; }
+    .logo-placeholder { width: 74px; height: 74px; border-radius: 22px; font-size: 13px; }
+    .nav { width: calc(100% - 16px); margin-bottom: 16px; padding: 5px; }
+    .nav a { padding: 11px 4px; font-size: 10px; letter-spacing: 0; }
+    .container { width: calc(100% - 16px); }
+    .hero { padding: 27px 12px 28px; border-radius: 21px; }
+    .hero h1 { font-size: 25px; }
+    .hero-subtitle { font-size: 11px; }
+    .timer-area { width: 190px; height: 190px; }
+    .timer-ring { width: 190px; height: 190px; }
+    .timer { font-size: 36px; }
+    .number-box { width: 72px; height: 55px; font-size: 20px; }
+    .section { padding: 16px 12px; border-radius: 18px; }
+    .section-title { font-size: 14px; }
+    .chart th { font-size: 8px; padding: 11px 3px; letter-spacing: 0.3px; }
+    .chart td { font-size: 10px; padding: 13px 3px; }
+    .chart td:not(:first-child) { font-size: 11px; }
+    .latest-badge { font-size: 6px; padding: 2px 4px; margin-left: 2px; }
+    .players-number { font-size: 38px; }
+    .footer-links { gap: 15px; }
 }
-
-
-/* =====================================================
-   EXTRA SMALL PHONES
-===================================================== */
 
 @media(max-width:360px) {
-
-
-    .nav a {
-
-        font-size: 9px;
-
-        padding-left: 2px;
-
-        padding-right: 2px;
-    }
-
-
-    .number-box {
-
-        width: 66px;
-
-        height: 53px;
-    }
-
-
-    .hero h1 {
-
-        font-size: 23px;
-    }
-
-
-    .chart th {
-
-        font-size: 7px;
-    }
-
-
-    .chart td {
-
-        font-size: 9px;
-    }
-
+    .nav a { font-size: 9px; padding-left: 2px; padding-right: 2px; }
+    .number-box { width: 66px; height: 53px; }
+    .hero h1 { font-size: 23px; }
+    .chart th { font-size: 7px; }
+    .chart td { font-size: 9px; }
 }
-
-
-/* =====================================================
-   COMPACT GAME SCHEDULE
-===================================================== */
 
 .game-schedule {
     margin: 18px auto 0;
@@ -1627,30 +791,18 @@ body {
 }
 
 @media(max-width:600px) {
-    .game-schedule {
-        margin-top: 15px;
-        padding: 10px 8px;
-    }
-
-    .game-schedule-row {
-        gap: 4px;
-        font-size: 9px;
-    }
-
-    .game-schedule-item {
-        padding: 4px 6px;
-    }
+    .game-schedule { margin-top: 15px; padding: 10px 8px; }
+    .game-schedule-row { gap: 4px; font-size: 9px; }
+    .game-schedule-item { padding: 4px 6px; }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 <!-- =====================================================
-     SOUND NOTIFICATION FOR RESULTS (NEW)
+     SOUND NOTIFICATION FOR RESULTS (ADDED PROPERLY)
 ===================================================== -->
 <audio id="resultSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
 
@@ -1659,15 +811,8 @@ body {
 ===================================================== -->
 
 <header class="header">
-
-<div class="brand">
-<span>YS PLAY</span>
-</div>
-
-<button class="language-toggle">
-English | हिंदी
-</button>
-
+<div class="brand"><span>YS PLAY</span></div>
+<button class="language-toggle">English | हिंदी</button>
 </header>
 
 
@@ -1676,13 +821,7 @@ English | हिंदी
 ===================================================== -->
 
 <div class="logo-area">
-
-    <div class="logo-placeholder">
-
-        YS<br>LOGO
-
-    </div>
-
+    <div class="logo-placeholder">YS<br>LOGO</div>
 </div>
 
 
@@ -1691,19 +830,9 @@ English | हिंदी
 ===================================================== -->
 
 <nav class="nav">
-
-    <a href="#" class="active" data-lang="nav-home">
-        HOME
-    </a>
-
-    <a href="old-charts.html" data-lang="nav-charts">
-        OLD CHARTS
-    </a>
-
-    <a href="how-to-play.html" data-lang="nav-how">
-        HOW TO PLAY
-    </a>
-
+    <a href="#" class="active" data-lang="nav-home">HOME</a>
+    <a href="old-charts.html" data-lang="nav-charts">OLD CHARTS</a>
+    <a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
 </nav>
 
 <!-- =====================================================
@@ -1711,12 +840,10 @@ English | हिंदी
 ===================================================== -->
 
 <div class="notice-ticker" aria-label="Important notice">
-
     <div class="notice-track" id="noticeTrack">
         <div class="notice-item">Loading notice...</div>
         <div class="notice-item" aria-hidden="true">Loading notice...</div>
     </div>
-
 </div>
 
 
@@ -1726,118 +853,37 @@ English | हिंदी
 
 <main class="container">
 
-
-    <!-- =================================================
-         HERO
-    ================================================= -->
-
     <section class="hero">
-
         <div class="hero-content">
+            <h1 data-lang="hero-title">YS PLAY</h1>
+            <div class="hero-subtitle" data-lang="hero-sub">Your numbers. Your charts. Your game.</div>
 
-
-            <h1 data-lang="hero-title">
-                YS PLAY
-            </h1>
-
-
-            <div class="hero-subtitle" data-lang="hero-sub">
-
-                Your numbers. Your charts. Your game.
-
-            </div>
-
-
-            <!-- =========================================
-                 PREMIUM TIMER
-            ========================================= -->
-
-            <div
-                class="timer-area"
-                id="timerArea">
-
-
-                <div
-                    class="timer-ring"
-                    id="timerRing">
-                </div>
-
-
+            <!-- PREMIUM TIMER -->
+            <div class="timer-area" id="timerArea">
+                <div class="timer-ring" id="timerRing"></div>
                 <div class="timer-inner">
-
-
-                    <div class="timer-label" data-lang="timer-label">
-
-                        Next Update In
-
-                    </div>
-
-
-                    <div
-                        class="timer"
-                        id="timer">
-
-                        —:—
-
-                    </div>
-
-
-                    <div class="timer-note" data-lang="timer-note">
-
-                        Updates automatically
-
-                    </div>
-
-
+                    <div class="timer-label" data-lang="timer-label">Next Update In</div>
+                    <div class="timer" id="timer">—:—</div>
+                    <div class="timer-note" data-lang="timer-note">Updates automatically</div>
                 </div>
-
             </div>
 
-
-            <!-- =========================================
-                 LATEST NUMBERS
-            ========================================= -->
-
-            <div class="numbers-heading" data-lang="latest-head">
-
-                Latest Numbers
-
-            </div>
-
+            <!-- LATEST NUMBERS -->
+            <div class="numbers-heading" data-lang="latest-head">Latest Numbers</div>
             <div id="latestNumbers">
-            <div class="numbers">
-
-                <div class="number-box" id="latest1">
-                    —
+                <div class="numbers">
+                    <div class="number-box" id="latest1">—</div>
+                    <div class="number-box" id="latest2">—</div>
+                    <div class="number-box" id="latest3">—</div>
                 </div>
-
-                <div class="number-box" id="latest2">
-                    —
-                </div>
-
-                <div class="number-box" id="latest3">
-                    —
-                </div>
-
             </div>
-
-
         </div>
-
     </section>
 
-    <!-- =================================================
-         COMPACT GAME SCHEDULE
-    ================================================= -->
-
+    <!-- COMPACT GAME SCHEDULE -->
     <div class="game-schedule">
-
-        <div class="game-schedule-title">
-            Game Schedule
-        </div>
-
+        <div class="game-schedule-title">Game Schedule</div>
         <div class="game-schedule-row">
-
             <div class="game-schedule-item">10 AM–1 PM · 13 Games</div>
             <div class="game-schedule-item break">1–2 PM · BREAK</div>
             <div class="game-schedule-item">2–5 PM · 13 Games</div>
@@ -1845,208 +891,111 @@ English | हिंदी
             <div class="game-schedule-item">6–9 PM · 13 Games</div>
             <div class="game-schedule-item break">9–10 PM · BREAK</div>
             <div class="game-schedule-item bonus">10–11 PM · ⭐ 6 Bonus Games</div>
-
         </div>
-
         <div class="game-schedule-total">45 Games Daily</div>
-
     </div>
 
 
-    <!-- =================================================
-         TODAY'S CHART
-    ================================================= -->
-
+    <!-- TODAY'S CHART -->
     <section class="section">
-
-
         <div class="section-header">
-
-
-            <div class="section-title" data-lang="chart-head">
-
-                Today's Chart
-
-            </div>
-
-
-            <div class="section-tag" data-lang="chart-tag">
-
-                Latest
-
-            </div>
-
-
+            <div class="section-title" data-lang="chart-head">Today's Chart</div>
+            <div class="section-tag" data-lang="chart-tag">Latest</div>
         </div>
-
 
         <div class="chart-wrapper">
-
-
             <table class="chart">
-
-    <thead>
-
-        <tr>
-            <th data-lang="chart-time">Time</th>
-            <th data-lang="chart-res1">Result 1</th>
-            <th data-lang="chart-res2">Result 2</th>
-            <th data-lang="chart-res3">Result 3</th>
-        </tr>
-
-    </thead>
-
-
-    <tbody id="todayChart">
-
-
-        <tr class="latest">
-            <td>
-                10:00 AM
-                <span class="latest-badge">NEW</span>
-            </td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-        </tr>
-        <tr><td>10:15 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:30 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:45 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>11:00 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>11:15 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>11:30 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>11:45 AM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>12:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>12:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>12:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>12:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        
-        <tr><td>1:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-
-        <!-- 2 PM SESSION -->
-
-        <tr><td>2:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>2:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>2:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>2:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>3:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>3:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>3:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>3:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>4:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>4:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>4:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>4:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>5:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-
-        <!-- 6 PM SESSION -->
-
-        <tr><td>6:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>6:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>6:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>6:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>7:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>7:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>7:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>7:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>8:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>8:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>8:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>8:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>9:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-
-        <!-- BONUS SESSION -->
-
-        <tr><td>10:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:10 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:20 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:40 PM</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>10:50 PM</td><td>—</td><td>—</td><td>—</td></tr>
-
-    </tbody>
-
-</table>
-
-
+                <thead>
+                    <tr>
+                        <th data-lang="chart-time">Time</th>
+                        <th data-lang="chart-res1">Result 1</th>
+                        <th data-lang="chart-res2">Result 2</th>
+                        <th data-lang="chart-res3">Result 3</th>
+                    </tr>
+                </thead>
+                <tbody id="todayChart">
+                    <tr class="latest">
+                        <td>10:00 AM<span class="latest-badge">NEW</span></td>
+                        <td>—</td><td>—</td><td>—</td>
+                    </tr>
+                    <tr><td>10:15 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:30 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:45 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>11:00 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>11:15 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>11:30 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>11:45 AM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>12:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>12:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>12:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>12:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>1:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <!-- 2 PM SESSION -->
+                    <tr><td>2:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>2:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>2:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>2:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>3:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>3:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>3:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>3:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>4:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>4:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>4:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>4:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>5:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <!-- 6 PM SESSION -->
+                    <tr><td>6:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>6:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>6:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>6:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>7:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>7:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>7:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>7:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>8:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>8:15 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>8:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>8:45 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>9:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <!-- BONUS SESSION -->
+                    <tr><td>10:00 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:10 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:20 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:30 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:40 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10:50 PM</td><td>—</td><td>—</td><td>—</td></tr>
+                </tbody>
+            </table>
         </div>
-
     </section>
 
-
-
-    <!-- =================================================
-         LIVE PEOPLE
-    ================================================= -->
-
+    <!-- LIVE PEOPLE -->
     <section class="section people">
-
-
         <div class="live-status">
-
             <span class="live-dot"></span>
-
             <span data-lang="live-text">LIVE • People Playing Now</span>
-
         </div>
-
-
-        <div
-            class="players-number"
-            id="players">
-
-            127
-
-        </div>
-
-
-        <div class="players-text" data-lang="live-sub">
-
-            players currently online
-
-        </div>
-
-
+        <div class="players-number" id="players">127</div>
+        <div class="players-text" data-lang="live-sub">players currently online</div>
     </section>
-
 
 </main>
 
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
+<!-- FOOTER -->
 <footer class="footer">
-
-
     <div class="footer-links">
-
         <a href="index.html" data-lang="nav-home">HOME</a>
         <a href="old-charts.html" data-lang="nav-charts">OLD CHARTS</a>
         <a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
-
     </div>
-
-
-    <div class="copyright">
-
-        © 2026 YS PLAY. All rights reserved.
-
-    </div>
-
-
+    <div class="copyright">© 2026 YS PLAY. All rights reserved.</div>
 </footer>
 
 
 <script src="language.js"></script>
 <script>
-
-/* =====================================================
-   SMART TIMER LOGIC (WITH PRECISE BREAKS)
-===================================================== */
-
+/* TIMER LOGIC */
 function updateTimer() {
     const now = new Date();
     const ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
@@ -2071,7 +1020,6 @@ function updateTimer() {
 
     const isBonus = nextGameMins >= 1320 && nextGameMins <= 1370;
     const slotDurationSecs = isBonus ? 10 * 60 : 15 * 60;
-
     const isBreak = diffSecs > slotDurationSecs;
 
     const timer = document.getElementById("timer");
@@ -2079,7 +1027,6 @@ function updateTimer() {
     const timerArea = document.getElementById("timerArea");
     const timerLabel = document.querySelector(".timer-label");
     const timerNote = document.querySelector(".timer-note");
-    
     let currentLang = localStorage.getItem("ysplay_lang") || "en";
 
     if (isBreak) {
@@ -2101,9 +1048,7 @@ function updateTimer() {
         const mins = Math.floor(diffSecs / 60);
         const secs = diffSecs % 60;
 
-        if (timer) {
-            timer.textContent = String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
-        }
+        if (timer) timer.textContent = String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
         
         let progress = (diffSecs / slotDurationSecs) * 100;
         if (progress < 0) progress = 0;
@@ -2114,51 +1059,31 @@ function updateTimer() {
             if (diffSecs <= 60) timerArea.classList.add("warning");
             else timerArea.classList.remove("warning");
         }
-
         if (timerLabel) timerLabel.style.visibility = "visible";
         if (timerNote) timerNote.textContent = currentLang === "hi" ? "अपने आप अपडेट होता है" : "Updates automatically";
     }
 }
-
 updateTimer();
 setInterval(updateTimer, 1000);
 
-
-/* =====================================================
-   LIVE PLAYERS
-===================================================== */
-
+/* LIVE PLAYERS */
 let players = 1487;
-
 function updatePlayers() {
     let change = Math.floor(Math.random() * 9) - 4;
     players += change;
     if (players < 1000) players = 1000;
     if (players > 2000) players = 2000;   
-
     const element = document.getElementById("players");
     element.style.transform = "scale(1.05)";
     element.textContent = players;
-    setTimeout(function() {
-        element.style.transform = "scale(1)";
-    }, 180);
+    setTimeout(function() { element.style.transform = "scale(1)"; }, 180);
 }
-
 setInterval(updatePlayers, 2500);
-
 </script>
 
 <script type="module">
-// ==========================================
-// 1. FIREBASE CONNECTION (NOTICE + RESULTS)
-// ==========================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import {
-    getFirestore,
-    collection,
-    onSnapshot,
-    doc
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getFirestore, collection, onSnapshot, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDv6F9RNNa6XYYPXVumqKr77GSKW2d7Y6U",
@@ -2168,62 +1093,25 @@ const firebaseConfig = {
     messagingSenderId: "931694240335",
     appId: "1:931694240335:web:433aa4fe02020066dfc03a"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ==========================================
-// 2. LIVE NOTICE TICKER
-// ==========================================
+// LIVE NOTICE TICKER
 const noticeRef = doc(db, "settings", "notice");
-
 try {
     onSnapshot(noticeRef, (docSnap) => {
-        if (docSnap.exists()) {
-            const data = docSnap.data();
-            if (data.text) {
-                const track = document.getElementById("noticeTrack");
-                if (track) {
-                    track.innerHTML = `
-                        <div class="notice-item">${data.text}</div>
-                        <div class="notice-item" aria-hidden="true">${data.text}</div>
-                    `;
-                }
-            }
-        } else {
-             const track = document.getElementById("noticeTrack");
-                if (track) {
-                    track.innerHTML = `
-                        <div class="notice-item">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
-                        <div class="notice-item" aria-hidden="true">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
-                    `;
-                }
-        }
-    }, (error) => {
-        console.error("Notice Snapshot Error:", error);
-        const track = document.getElementById("noticeTrack");
-        if (track) {
-             track.innerHTML = `
-                <div class="notice-item">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
-                <div class="notice-item" aria-hidden="true">Big Win Today     |    Watsapp Only: 9665057678      |      Play More Win More</div>
-            `;
+        if (docSnap.exists() && docSnap.data().text) {
+            const track = document.getElementById("noticeTrack");
+            if (track) track.innerHTML = `<div class="notice-item">${docSnap.data().text}</div><div class="notice-item" aria-hidden="true">${docSnap.data().text}</div>`;
         }
     });
-} catch(e) {
-    console.error("Notice Setup Error", e);
-}
+} catch(e) {}
 
-
-// ==========================================
-// 3. DAILY RESULTS LOGIC & SOUND NOTIFICATION
-// ==========================================
-const today = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Kolkata"
-}).format(new Date());
-
+// DAILY RESULTS LOGIC & SOUND
+const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(new Date());
 const gamesRef = collection(db, "daily_results", today, "games");
 let todayGames = [];
-let lastPlayedTime = null; // Ye line sound ko control karegi
+let lastPlayedTime = null; 
 
 function getISTNow() {
     const now = new Date();
@@ -2232,11 +1120,9 @@ function getISTNow() {
 
 function timeToMinutes(timeString) {
     const parts = timeString.trim().split(" ");
-    const time = parts[0];
-    const period = parts[1];
-    let [hours, minutes] = time.split(":").map(Number);
-    if (period === "PM" && hours !== 12) hours += 12;
-    if (period === "AM" && hours === 12) hours = 0;
+    let [hours, minutes] = parts[0].split(":").map(Number);
+    if (parts[1] === "PM" && hours !== 12) hours += 12;
+    if (parts[1] === "AM" && hours === 12) hours = 0;
     return hours * 60 + minutes;
 }
 
@@ -2247,27 +1133,16 @@ function renderReleasedResults() {
 
     rows.forEach(row => {
         const cells = row.querySelectorAll("td");
-        if (cells.length >= 4) {
-            cells[1].textContent = "—";
-            cells[2].textContent = "—";
-            cells[3].textContent = "—";
-        }
+        if (cells.length >= 4) { cells[1].textContent = "—"; cells[2].textContent = "—"; cells[3].textContent = "—"; }
     });
 
     let releasedGames = [];
-
     todayGames.forEach(game => {
-        if (!game.time) return;
-        const gameMinutes = timeToMinutes(game.time);
-
-        if (currentMinutes >= gameMinutes) {
+        if (game.time && currentMinutes >= timeToMinutes(game.time)) {
             releasedGames.push(game);
             rows.forEach(row => {
                 const cells = row.querySelectorAll("td");
-                if (cells.length < 4) return;
-                const rowTime = cells[0].textContent.replace("NEW", "").trim();
-
-                if (rowTime === game.time) {
+                if (cells.length >= 4 && cells[0].textContent.replace("NEW", "").trim() === game.time) {
                     cells[1].textContent = game.result1 || "—";
                     cells[2].textContent = game.result2 || "—";
                     cells[3].textContent = game.result3 || "—";
@@ -2288,10 +1163,7 @@ function renderReleasedResults() {
 
         rows.forEach(row => {
             const cells = row.querySelectorAll("td");
-            if (cells.length < 4) return;
-            const rowTime = cells[0].textContent.trim();
-
-            if (rowTime === latestGame.time) {
+            if (cells.length >= 4 && cells[0].textContent.trim() === latestGame.time) {
                 row.classList.add("latest");
                 const badge = document.createElement("span");
                 badge.className = "latest-badge";
@@ -2304,11 +1176,14 @@ function renderReleasedResults() {
         document.getElementById("latest2").textContent = latestGame.result2 || "—";
         document.getElementById("latest3").textContent = latestGame.result3 || "—";
 
-        // Yaha par naya result aane par sound bajjne ka logic hai
+        // Sound bajane ka logic
         if (lastPlayedTime !== latestGame.time) {
             if (lastPlayedTime !== null) { 
                 const bell = document.getElementById("resultSound");
-                if (bell) bell.play().catch(e => console.log("Sound autoplay blocked by browser"));
+                if (bell) {
+                    bell.currentTime = 0;
+                    bell.play().catch(e => console.log("Sound autoplay blocked by browser"));
+                }
             }
             lastPlayedTime = latestGame.time;
         }
@@ -2322,16 +1197,24 @@ function renderReleasedResults() {
 
 onSnapshot(gamesRef, (snapshot) => {
     todayGames = [];
-    snapshot.forEach((doc) => {
-        todayGames.push(doc.data());
-    });
+    snapshot.forEach((doc) => { todayGames.push(doc.data()); });
     renderReleasedResults();
-}, (error) => {
-    console.error("Firebase error:", error);
 });
 
 setInterval(renderReleasedResults, 1000);
-      
+
+// ==========================================
+// BROWSER SOUND UNLOCKER HACK
+// ==========================================
+document.addEventListener("click", function() {
+    const bell = document.getElementById("resultSound");
+    if (bell) {
+        bell.play().then(() => {
+            bell.pause();
+            bell.currentTime = 0;
+        }).catch(e => {});
+    }
+}, { once: true });
 </script>
 
 </body>
