@@ -829,6 +829,77 @@ body {
     .game-schedule-item { padding: 4px 6px; }
 }
 
+
+
+/* =====================================================
+   NASEEB PLAY HOME PAGE
+===================================================== */
+.home-section { margin-top: 18px; }
+.home-section-heading {
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; margin-bottom:12px;
+}
+.home-section-heading h2 { font-size:15px; font-weight:800; letter-spacing:.3px; }
+.home-live-tag {
+    display:inline-flex; align-items:center; gap:6px;
+    color:#ff8585; font-size:9px; font-weight:800; letter-spacing:1px;
+}
+.home-live-tag::before {
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:#ff5555; box-shadow:0 0 10px rgba(255,85,85,.8);
+}
+.video-screen {
+    width:100%; aspect-ratio:16/9; min-height:180px; max-height:430px;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    overflow:hidden; border-radius:16px;
+    background:radial-gradient(circle at 50% 45%,rgba(118,87,255,.16),transparent 55%),#05070d;
+    border:1px solid rgba(145,125,255,.22);
+    box-shadow:inset 0 0 35px rgba(0,0,0,.45),0 12px 30px rgba(0,0,0,.2);
+}
+.video-placeholder { padding:20px; color:#858da2; }
+.video-placeholder strong {
+    display:block; color:#d9dcff; font-size:13px; letter-spacing:2px; margin-bottom:7px;
+}
+.video-placeholder span { font-size:10px; }
+.result-pair {
+    display:grid; grid-template-columns:1fr 1fr; gap:12px;
+}
+.result-card {
+    min-width:0; padding:15px 12px; text-align:center;
+    border-radius:15px; background:linear-gradient(145deg,rgba(118,87,255,.14),rgba(78,140,255,.045));
+    border:1px solid rgba(124,108,255,.18);
+}
+.result-label {
+    color:#9ca9ff; font-size:10px; font-weight:800;
+    letter-spacing:1.4px; margin-bottom:9px;
+}
+.result-value { font-size:clamp(21px,5vw,30px); font-weight:900; letter-spacing:2px; }
+.result-hint { margin-top:5px; color:#727b91; font-size:9px; }
+.final-result {
+    margin-top:12px; padding:16px 12px; text-align:center;
+    border-radius:15px; background:linear-gradient(110deg,rgba(64,229,139,.10),rgba(78,140,255,.08));
+    border:1px solid rgba(64,229,139,.18);
+}
+.final-result .result-label { color:#65e9a3; }
+.final-result .result-value { font-size:clamp(22px,6vw,32px); letter-spacing:3px; }
+.home-timing-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.home-timing {
+    padding:11px 9px; text-align:center; border-radius:11px;
+    background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.065);
+    color:#cbd0df; font-size:10px; line-height:1.7;
+}
+.home-timing b { display:block; color:#aebaff; font-size:11px; }
+.home-chart-note { color:#727b91; font-size:10px; margin:-5px 0 12px; }
+.home-chart-table { min-width:560px; }
+.home-chart-table th:first-child,.home-chart-table td:first-child { width:62px; }
+.contact-buttons .contact-btn { cursor:default; opacity:.82; }
+@media(max-width:420px) {
+    .result-pair { gap:8px; }
+    .result-card { padding:13px 7px; }
+    .home-timing-grid { gap:6px; }
+    .home-timing { font-size:9px; padding:10px 5px; }
+}
+
 </style>
 </head>
 
@@ -858,7 +929,7 @@ body {
 
 <nav class="nav">
     <a href="index.html" class="active" data-lang="nav-home">HOME</a>
-    <a href="jodi-game.html">JODI GAME</a>
+    <a href="jodi-game.html">JODI CHART</a>
     <a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
 </nav>
 
@@ -880,7 +951,118 @@ body {
 
 <main class="container">
 
-    <!-- HOME PAGE LEFT BLANK FOR FUTURE MAIN GAME DESIGN -->
+    <!-- LIVE SCREEN -->
+    <section class="section home-section" aria-label="Live screen">
+        <div class="home-section-heading">
+            <h2>LIVE SCREEN</h2>
+            <span class="home-live-tag">SCREEN</span>
+        </div>
+        <div class="video-screen">
+            <div class="video-placeholder">
+                <strong>VIDEO SCREEN</strong>
+                <span>Video will appear here</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TODAY'S RESULT -->
+    <section class="section home-section">
+        <div class="home-section-heading">
+            <h2>TODAY'S RESULT</h2>
+            <span class="section-tag">RESULT</span>
+        </div>
+        <div class="result-pair">
+            <div class="result-card">
+                <div class="result-label">OPEN</div>
+                <div class="result-value">--- - -</div>
+                <div class="result-hint">Open number</div>
+            </div>
+            <div class="result-card">
+                <div class="result-label">CLOSE</div>
+                <div class="result-value">- - ---</div>
+                <div class="result-hint">Close number</div>
+            </div>
+        </div>
+        <div class="final-result">
+            <div class="result-label">FINAL RESULT</div>
+            <div class="result-value">--- - -- - ---</div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-buttons" aria-label="Contact links">
+        <span class="contact-btn">WHATSAPP</span>
+        <span class="contact-btn">TELEGRAM</span>
+    </div>
+
+    <!-- GAME TIMINGS -->
+    <section class="section home-section">
+        <div class="home-section-heading">
+            <h2>GAME TIMINGS</h2>
+            <span class="section-tag">DAILY</span>
+        </div>
+        <div class="home-timing-grid">
+            <div class="home-timing"><b>GAME 01</b>Open: 11:00 AM<br>Close: 12:00 PM</div>
+            <div class="home-timing"><b>GAME 02</b>Open: 3:00 PM<br>Close: 4:00 PM</div>
+            <div class="home-timing"><b>GAME 03</b>Open: 7:00 PM<br>Close: 8:00 PM</div>
+            <div class="home-timing"><b>GAME 04</b>Open: 10:00 PM<br>Close: 11:00 PM</div>
+        </div>
+    </section>
+
+    <!-- MONTHLY CHART: DATA TO BE CONNECTED/FINALIZED LATER -->
+    <section class="section home-section">
+        <div class="home-section-heading">
+            <h2>MONTHLY CHART</h2>
+            <span class="section-tag">CHART</span>
+        </div>
+        <p class="home-chart-note">Monthly results will be displayed here.</p>
+        <div class="chart-wrapper">
+            <table class="chart home-chart-table">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>11 AM – 12 PM</th>
+                        <th>3 PM – 4 PM</th>
+                        <th>7 PM – 8 PM</th>
+                        <th>10 PM – 11 PM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>01</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>02</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>03</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>04</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>05</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>06</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>07</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>08</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>09</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>10</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>11</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>12</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>13</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>14</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>15</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>16</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>17</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>18</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>19</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>20</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>21</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>22</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>23</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>24</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>25</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>26</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>27</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>28</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>29</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>30</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 
 </main>
 
@@ -888,7 +1070,7 @@ body {
 <footer class="footer">
     <div class="footer-links">
         <a href="index.html" data-lang="nav-home">HOME</a>
-        <a href="jodi-game.html">JODI GAME</a>
+        <a href="jodi-game.html">JODI CHART</a>
         <a href="how-to-play.html" data-lang="nav-how">HOW TO PLAY</a>
     </div>
     <div class="copyright">© 2026 NASEEB PLAY. All rights reserved.</div>
