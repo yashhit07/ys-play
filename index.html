@@ -890,14 +890,20 @@ body {
 }
 .home-timing b { display:block; color:#aebaff; font-size:11px; }
 .home-chart-note { color:#727b91; font-size:10px; margin:-5px 0 12px; }
-.home-chart-table { min-width:560px; }
-.home-chart-table th:first-child,.home-chart-table td:first-child { width:62px; }
+.home-chart-table { min-width:0; width:100%; }
+.home-chart-table th:first-child,.home-chart-table td:first-child { width:11%; }
+.home-chart-table th:not(:first-child),.home-chart-table td:not(:first-child) { width:22.25%; }
+.home-chart-table th { white-space:normal; overflow-wrap:anywhere; line-height:1.35; }
+.home-chart-table td { padding-left:2px; padding-right:2px; }
 .contact-buttons .contact-btn { cursor:default; opacity:.82; }
 @media(max-width:420px) {
     .result-pair { gap:8px; }
     .result-card { padding:13px 7px; }
     .home-timing-grid { gap:6px; }
     .home-timing { font-size:9px; padding:10px 5px; }
+    .home-chart-table th { font-size:7px; padding:8px 2px; letter-spacing:0; }
+    .home-chart-table td { font-size:9px; padding:10px 1px; }
+    .home-chart-table td:not(:first-child) { font-size:10px; }
 }
 
 </style>
